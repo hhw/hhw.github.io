@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Change is the ONLY constant.">
+  <meta name="keyword" content="undefined">
+  <title>
+    
+      关于高可用的系统 | 如是我曰（IMHO）
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+  <script src="/js/gitment.js"></script>
+</head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>如是我曰（IMHO）</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>关于高可用的系统</h2>
+  <p class="post-date">2016-08-21</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body">
+  <article class="post-article">
+    <section class="markdown-content"><p><img src="http://coolshell.cn//wp-content/uploads/2016/08/HighAvailability-BK-300x300.png" alt="HighAvailability-BK">在《<a href="http://coolshell.cn/articles/17446.html" target="_blank" rel="external">这多年来我一直在钻研的技术</a>》这篇文章中，我讲述了一下，我这么多年来一直在关注的技术领域，其中我多次提到了工业级的软件，我还以为有很多人会问我怎么定义工业级？以及一个高可用性的软件系统应该要怎么干出来？这样我也可以顺理成章的写下这篇文章，但是没有人问，那么，我只好厚颜无耻的自己写下这篇文章了。哈哈。</p>
+<p>另外，我在一些讨论高可用系统的地方看到大家只讨论各个公司的技术方案，<strong>其实，高可用的系统并不简单的是技术方案，一个高可用的系统其实还包括很多别的东西，所以，我觉得大家对高可用的系统了解的还不全面，为了让大家的认识更全面，所以，我写下这篇文章</strong>。</p>
+<h4 id="理解高可用系统"><a href="#理解高可用系统" class="headerlink" title="理解高可用系统"></a>理解高可用系统</h4><p>首先，我们需要理解什么是高可用，英文叫High Availability（<a href="https://en.wikipedia.org/wiki/High_availability" target="_blank" rel="external">Wikipedia词条</a>），基本上来说，就是要让我们的计算环境（包括软硬件）做到full-time的可用性。在设计上一般来说，需要做好如下的设计：</p>
+<p><span id="more-17459"></span></p>
+<ol>
+<li>对软硬件的冗余，以消除单点故障。任何系统都会有一个或多个冗余系统做standby</li>
+<li>对故障的检测和恢复。检测故障以及用备份的结点接管故障点。这也就是failover</li>
+<li>需要很可靠的交汇点（CrossOver）。这是一些不容易冗余的结点，比如域名解析，负载均衡器等。</li>
+</ol>
+<p>听起似乎很简单吧，然而不是，细节之处全是魔鬼，冗余结点最大的难题就是对于有状态的结点的数据复制和数据一致性的保证（无状态结点的冗余相对比较简单）。冗余数据所带来的一致性问题是魔鬼中的魔鬼：</p>
+<ul>
+<li><p>如果系统的数据镜像到冗余结点是异步的，那么在failover的时候就会出现数据差异的情况。</p>
+</li>
+<li><p>如果系统在数据镜像到冗余结点是同步的，那么就会导致冗余结点越多性能越慢。</p>
+</li>
+</ul>
+<p>所以，很多高可用系统都是在做各种取舍，这需要比对着业务的特点来的，比如银行账号的余额是一个状态型的数据，那么，冗余时就必需做到强一致性，再比如说，订单记录属于追加性的数据，那么在failover的时候，就可以到备机上进行追加，这样就比较简单了（阿里目前所谓的异地双活其实根本做不到状态型数据的双活）。</p>
+<p>下面，总结一下高可用的设计原理：</p>
+<ul>
+<li>要做到数据不丢，就必需要持久化</li>
+<li>要做到服务高可用，就必需要有备用（复本），无论是应用结点还是数据结点</li>
+<li>要做到复制，就会有数据一致性的问题。</li>
+<li>我们不可能做到100%的高可用，也就是说，我们能做到几个9个的SLA。</li>
+</ul>
+<h4 id="高可用系统的技术解决方案"><a href="#高可用系统的技术解决方案" class="headerlink" title="高可用系统的技术解决方案"></a>高可用系统的技术解决方案</h4><p>我在《<a href="http://coolshell.cn/articles/10910.html" target="_blank" rel="external">分布式系统的事务处理</a>》中引用过下面这个图：这个图来自来自：Google App Engine的co-founder Ryan Barrett在2009年的Google I/O上的演讲《<a href="http://snarfed.org/transactions_across_datacenters_io.html" target="_blank" rel="external">Transaction Across DataCenter</a>》（视频： <a href="http://www.youtube.com/watch?v=srOgpXECblk" title="阿里旺旺无法确定该链接的安全性" target="_blank" rel="external">http://www.youtube.com/watch?v=srOgpXECblk</a>）</p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2014/01/Transaction-Across-DataCenter.jpg" alt="Transaction Across DataCenter"></p>
+<p>这个图基本上来说是目前高可用系统中能看得到的所有的解决方案的基础了。M/S、MM实现起来不难，但是会有很多问题，2PC的问题就是性能不行，而Paxos的问题就是太复杂，实现难度太大。</p>
+<p>总结一下各个高可用方案的的问题：</p>
+<ul>
+<li>对于最终一致性来说，在宕机的情况下，会出现数据没有完全同步完成，会出现数据差异性。</li>
+<li>对于强一致性来说，要么使用性能比较慢的<a href="https://en.wikipedia.org/wiki/X/Open_XA" target="_blank" rel="external">XA系</a>的两阶段提交的方案，要么使用性能比较好，但是实现比较复杂的Paxos协议。</li>
+</ul>
+<p>注：这是软件方面的方案。当然，也可以使用造价比较高的硬件解决方案，不过本文不涉及硬件解决方案。</p>
+<p>另外，现今开源软件中，很多缓存，消息中间件或数据库都有持久化和Replication的设计，从而也都有高可用解决方案，但是开源软件一般都没有比较高的SLA，所以，如果我们使用开源软件的话，需要注意这一点。</p>
+<h4 id="高可用技术方案的示例"><a href="#高可用技术方案的示例" class="headerlink" title="高可用技术方案的示例"></a>高可用技术方案的示例</h4><p>下面，我们来看一下MySQL的高可用的方案的SLA（下图下面红色的标识表示了这个方案有几个9）：</p>
+<p><a href="http://www.slideshare.net/andrewjamesmorgan/mysql-high-availability-solutions-feb-2015-webinar" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2016/08/mysql-high-availability-solutions-feb-2015-webinar-9-638.jpg" alt="mysql-high-availability-solutions-feb-2015-webinar-9-638"></a></p>
+<p>图片来源：<a href="http://www.slideshare.net/andrewjamesmorgan/mysql-high-availability-solutions-feb-2015-webinar" target="_blank" rel="external">MySQL High Availability Solutions</a></p>
+<p>简单解释一下MySQL的这几个方案（主要是想表达一个越多的9就越复杂）</p>
+<ul>
+<li>MySQL Repleaction就是传统的异步数据同步或是半同步Semi-Sync（只要有一个slave收到更新就返回成功）这个方式本质上不到2个9。</li>
+<li>MySQL Fabric简单来说就是数据分片下的M/S的读写分离模式。这个方案的的可用性可以达到99%</li>
+<li>DRBD通过底层的磁盘同步技术来解决数据同步的问题，就是RAID 1——把两台以上的主机的硬盘镜像成一个。这个方案不到3个9</li>
+<li>Solaris Clustering/Oracle VM ，这个机制监控了包括硬件、操作系统、网络和数据库。这个方案一般会伴随着节点间的“心跳机制”，而且还会动用到SAN（Storage Area Network）或是本地的分布式存储系统，还会动用虚拟化技术来做虚拟机的迁移以降低宕机时间的概率。这个解决方案完全就是一个“全栈式的解决方案”。这个方案接近4个9。</li>
+<li>MySQL Cluster是官方的一个开源方案，其把MySQL的集群分成SQL Node 和Data Node，Data Node是一个自动化sharing和复制的集群NDB，为了更高的可用性，MySQL Cluster采用了“完全同步”的数据复制的机制来冗余数据结点。这个方案接近5个9。</li>
+</ul>
+<p>那么，这些2个9，3个9，4个9，5个9是什么意思呢？又是怎么来的呢？请往下看。</p>
+<h4 id="高可用性的SLA的定义"><a href="#高可用性的SLA的定义" class="headerlink" title="高可用性的SLA的定义"></a>高可用性的SLA的定义</h4><p><strong>上面那些都不是本文的重点，本文的重点现在开始，如何测量系统的高可用性</strong>。当然是SLA，全称<a href="https://en.wikipedia.org/wiki/Service-level_agreement" target="_blank" rel="external">Service Level Agrement</a>，也就是有几个9的高可用性。</p>
+<p>工业界有两种方法来测量SLA，</p>
+<ul>
+<li>一个是故障发生到恢复的时间</li>
+<li>另一个是两次故障间的时间</li>
+</ul>
+<p>但大多数都采用第一种方法，也就是故障发生到恢复的时间，也就是服务不可用的时间，如下表所示：</p>
+<table class="wikitable" align="center"><br><tbody><br><tr><br><th>系统可用性%</th><br><th>宕机时间/年</th><br><th>宕机时间/月</th><br><th>宕机时间/周</th><br><th>宕机时间/天</th><br></tr><br><tr><br><td align="left">90% (1个9)</td><br><td>36.5 天</td><br><td>72 小时</td><br><td>16.8 小时</td><br><td>2.4 小时</td><br></tr><br><tr><br><td align="left">99% (2个9)</td><br><td>3.65 天</td><br><td>7.20 小时</td><br><td>1.68 小时</td><br><td>14.4 分</td><br></tr><br><tr><br><td align="left">99.9% (3个9)</td><br><td>8.76 小时</td><br><td>43.8 分</td><br><td>10.1 分钟</td><br><td>1.44 分</td><br></tr><br><tr><br><td align="left">99.99% (4个9)</td><br><td>52.56 分</td><br><td>4.38 分</td><br><td>1.01 分钟</td><br><td>8.66 秒</td><br></tr><br><tr><br><td align="left">99.999% (5个9)</td><br><td>5.26 分</td><br><td>25.9 秒</td><br><td>6.05 秒</td><br><td>0.87 秒</td><br></tr><br></tbody><br></table>
+
+<p>比如，99.999%的可用性，一年只能有5分半钟的服务不可用。感觉很难做到吧。</p>
+<p><strong>就算是3个9的可用性，一个月的宕机时间也只有40多分钟，看看那些设计和编码不认真的团队，把所有的期望寄托在人肉处理故障的运维团队， 一个故障就能处理1个多小时甚至2-3个小时，连个自动化的工具都没有，还好意思在官网上声明自己的SLA是3个9或是5个9，这不是欺骗大众吗？</strong>。</p>
+<h4 id="影响高可用的因素"><a href="#影响高可用的因素" class="headerlink" title="影响高可用的因素"></a>影响高可用的因素</h4><p>老实说，我们很难计算我们设计的系统有多少的可用性，因为影响一个系统的因素实在是太多了，除了软件设计，还有硬件，还有每三方的服务（如电信联通的宽带SLA），当然包括“建筑施工队的挖掘机”。所以，正如SLA的定义，<strong>这不仅仅只是一个技术指标，而是一种服务提供商和用户之间的contract或契约</strong>。<strong>这种工业级的玩法，就像飞机一样，并不是把飞机造出来就好了，还有大量的无比专业的配套设施、工具、流程、管理和运营</strong>。</p>
+<p>简而言之，SLA的几个9就是能持续提供可用服务的级别，不过，工业界中，会把服务不可用的因素分成两种：一种是有计划的，一种是无计划的。</p>
+<h5 id="无计划的宕机原因"><a href="#无计划的宕机原因" class="headerlink" title="无计划的宕机原因"></a>无计划的宕机原因</h5><p>下图来自Oracle的 《<a href="https://docs.oracle.com/cd/A91202_01/901_doc/rac.901/a89867/pshavdtl.htm" target="_blank" rel="external">High Availability Concepts and Best Practices</a>》</p>
+<p>&nbsp;</p>
+<h5 id="有计划的宕机原因"><a href="#有计划的宕机原因" class="headerlink" title="有计划的宕机原因"></a><img src="http://coolshell.cn//wp-content/uploads/2016/08/unplaned_downtime.gif" alt="unplaned_downtime">有计划的宕机原因</h5><p>下图来自Oracle的 《<a href="https://docs.oracle.com/cd/A91202_01/901_doc/rac.901/a89867/pshavdtl.htm" target="_blank" rel="external">High Availability Concepts and Best Practices</a>》</p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2016/08/planned_downtime.gif" alt="planned_downtime"></p>
+<p>&nbsp;</p>
+<p>我们可以看到，上面的宕机原因包括如下：</p>
+<p>无计划的</p>
+<ul>
+<li>系统级的故障 &#8211;  包括主机、操作系统、中间件、数据库、网络、电源以及外围设备</li>
+<li>数据和中介的故障 &#8211; 包括人员误操作、硬盘故障、数据乱了</li>
+<li>还有：自然灾害、人为破坏、以及供电问题。</li>
+</ul>
+<p>有计划的</p>
+<ul>
+<li>日常任务：备份，容量规划，用户和安全管理，后台批处理应用</li>
+<li>运维相关：数据库维护、应用维护、中间件维护、操作系统维护、网络维护</li>
+<li>升级相关：数据库、应用、中间件、操作系统、网络、包括硬件升级</li>
+</ul>
+<h4 id="真正决定高可用系统的本质原因"><a href="#真正决定高可用系统的本质原因" class="headerlink" title="真正决定高可用系统的本质原因"></a>真正决定高可用系统的本质原因</h4><p>从上面这些会影响高可用的SLA的因素，你看到了什么？如果你还是只看到了技术方面或是软件设计的东西，那么你只看到了冰山一角。我们再仔细想一想，<strong>那个5个9的SLA在一年内只能是5分钟的不可用时间，5分钟啊，如果按一年只出1次故障，你也得在五分钟内恢复故障，让我们想想，这意味着什么？</strong></p>
+<p><strong>如果你没有一套科学的牛逼的软件工程的管理，没有牛逼先进的自动化的运维工具，没有技术能力很牛逼的工程师团队，怎么可能出现高可用的系统啊</strong>。</p>
+<p>是的，<strong>要干出高可用的系统，这TMD就是一套严谨科学的工程管理</strong>，其中包括但不限于了：</p>
+<ul>
+<li>软件的设计、编码、测试、上线和软件配置管理的水平</li>
+<li>工程师的人员技能水平</li>
+<li>运维的管理和技术水平</li>
+<li>数据中心的运营管理水平</li>
+<li>依赖于第三方服务的管理水平</li>
+</ul>
+<p>深层交的东西则是——对工程这门科学的尊重：</p>
+<ul>
+<li>对待技术的态度</li>
+<li>一个公司的工程文化</li>
+<li>领导者对工程的尊重</li>
+</ul>
+<p><strong>所以，以后有人在你面前提高可用，你要看的不是他的技术设计，而还要看看他们的工程能力，看看他们公司是否真正的尊重工程这门科学</strong>。</p>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>有好些非技术甚至技术人员和我说过，做个APP做个网站，不就是找几个码农过来写写代码嘛。等系统不可用的时候，他们才会明白，要找技术能力比较强的人，但是，<strong>就算你和他们讲一万遍道理，他们也很难会明白写代码怎么就是一种工程了，而工程怎么就成了一门科学了。其实，很多做技术的人都不明白这个道理</strong>。</p>
+<p>包括很多技术人员也永远不会理解，为什么要做好多像Code Review、自动化运维、自动化测试、持续集成之类这样很无聊的东西。就像我在《<a href="http://coolshell.cn/articles/11432.html" target="_blank" rel="external">从Code Review 谈如何做技术</a>》中提到的，阿里很多的工程师，架构师/专家，甚至资深架构师都没有这个意识，当然，这不怪他们，因为经历决定思维方式，他们的经历的是民用级的系统，做的都是堆功能的工作，的确不需要。</p>
+<p>看完这些，最后让我们都扪心自问一下，你还敢说你的系统是高可用的了么？ ;-)</p>
+<p>（全文完）</p>
+<p><a href="https://cn.100offer.com/how-it-works/?utm_source=coolshell_cn&#038;utm_medium=display&#038;utm_campaign=coolshell_cn_20170615&#038;utm_content=find_new_job&#038;campaign_code=coolshell_cn target=_blank" target="_blank" rel="external"><img src="http://coolshell.cn/imgs/100offer_600_200.png" alt=""></a></p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2009/04/qrcode_for_gh_dd9d8c843f20_860-300x300.jpg" alt=""><br>关注CoolShell微信公众账号可以在手机端搜索文章</p>
+<div style="margin-top: 15px; font-size: 11px;color: #cc0000;"><br><p align="center"><strong>（转载本站文章请注明作者和出处 <a href="http://coolshell.cn/" target="_blank" rel="external">酷 壳 &#8211; CoolShell</a> ，请勿用于任何商业用途）</strong></p></div><br><div style="text-align:center;padding:0px;font-size: 14px;margin-bottom: 50px;">——=== <strong>访问 <a href="http://coolshell.cn/404/ target=_blank" target="_blank" rel="external">酷壳404页面</a> 寻找遗失儿童。</strong> ===——</div>
+
+<div class="wp_rp_wrap  wp_rp_vertical_m"><div class="wp_rp_content"><br><br>### 相关文章<br><br><em>   <a href="http://coolshell.cn/articles/17680.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2017/02/gitlab-600-150x150.jpg" alt="从Gitlab误删除数据库想到的"></a><a href="http://coolshell.cn/articles/17680.html" target="_blank" rel="external">从Gitlab误删除数据库想到的</a>
+</em>   <a href="http://coolshell.cn/articles/17737.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2017/03/Amazon-Web-Services-Down-150x150.png" alt="AWS 的 S3 故障回顾和思考"></a><a href="http://coolshell.cn/articles/17737.html" target="_blank" rel="external">AWS 的 S3 故障回顾和思考</a><br><em>   <a href="http://coolshell.cn/articles/10910.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2014/01/trade-off-150x150.jpg" alt="分布式系统的事务处理"></a><a href="http://coolshell.cn/articles/10910.html" target="_blank" rel="external">分布式系统的事务处理</a>
+</em>   <a href="http://coolshell.cn/articles/11432.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2014/04/code_review-150x150.jpg" alt="从Code Review 谈如何做技术"></a><a href="http://coolshell.cn/articles/11432.html" target="_blank" rel="external">从Code Review 谈如何做技术</a><br><em>   <a href="http://coolshell.cn/articles/17497.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2016/09/engineer-150x150.jpg" alt="什么是工程师文化？"></a><a href="http://coolshell.cn/articles/17497.html" target="_blank" rel="external">什么是工程师文化？</a>
+</em>   <a href="http://coolshell.cn/articles/9949.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2013/07/inverted-bookshelf_thumb-150x150.jpg" alt="IoC/DIP其实是一种管理思想"></a><a href="http://coolshell.cn/articles/9949.html" target="_blank" rel="external">IoC/DIP其实是一种管理思想</a></div></div></section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <span class="tag-code">程序设计</span>
+
+  <span class="tag-code">Design</span>
+
+  <span class="tag-code">High Availability</span>
+
+  <span class="tag-code">技术管理</span>
+
+  <span class="tag-code">Programmer</span>
+
+  <span class="tag-code">程序员</span>
+
+  <span class="tag-code">系统架构</span>
+
+  <span class="tag-code">分布式</span>
+
+  <span class="tag-code">Paxos</span>
+
+      </div>
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    <div id="comments"></div>
+  </article>
+</main>
+
+<script>
+  (function () {
+    var url = 'http://blog.hhw.im/2016/08/21/关于高可用的系统/';
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png') 
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      var imageW = $(this).width()
+      var imageH = $(this).height()
+      
+      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+      zoom = zoom < 1 ? 1 : zoom
+      zoom = zoom > 2 ? 2 : zoom
+      var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+      $('.image-view-wrap').addClass('wrap-active')
+      $('.image-view-wrap img').css({
+        'width': `${imageW}`,
+        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+      })
+      $('html').css('overflow', 'hidden')
+
+      $('.image-view-wrap').on('click', function() {
+        $(this).remove()
+        $('html').attr('style', '')
+      })
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "hhw";
+    if (gitmentConfig != "undefined") {
+      var gitment = new Gitment({
+        owner: "hhw",
+        repo: "hhw.github.io",
+        oauth: {
+          client_id: "undefined",
+          client_secret: "undefined"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | H H W . I M
+<!--Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>-->
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

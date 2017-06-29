@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Change is the ONLY constant.">
+  <meta name="keyword" content="undefined">
+  <title>
+    
+      缓存更新的套路 | 如是我曰（IMHO）
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+  <script src="/js/gitment.js"></script>
+</head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>如是我曰（IMHO）</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>缓存更新的套路</h2>
+  <p class="post-date">2016-07-27</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body">
+  <article class="post-article">
+    <section class="markdown-content"><p><img src="http://coolshell.cn//wp-content/uploads/2016/07/cache-300x158.png" alt="cache">看到好些人在写更新缓存数据代码时，<strong>先删除缓存，然后再更新数据库</strong>，而后续的操作会把数据再装载的缓存中。<strong>然而，这个是逻辑是错误的</strong>。试想，两个并发操作，一个是更新操作，另一个是查询操作，更新操作删除缓存后，查询操作没有命中缓存，先把老数据读出来后放到缓存中，然后更新操作更新了数据库。于是，在缓存中的数据还是老的数据，导致缓存中的数据是脏的，而且还一直这样脏下去了。</p>
+<p>我不知道为什么这么多人用的都是这个逻辑，当我在微博上发了这个贴以后，我发现好些人给了好多非常复杂和诡异的方案，所以，我想写这篇文章说一下几个缓存更新的Design Pattern（让我们多一些套路吧）。</p>
+<p>这里，我们先不讨论更新缓存和更新数据这两个事是一个事务的事，或是会有失败的可能，我们先假设更新数据库和更新缓存都可以成功的情况（我们先把成功的代码逻辑先写对）。</p>
+<p>更新缓存的的Design Pattern有四种：Cache aside, Read through, Write through, Write behind caching，我们下面一一来看一下这四种Pattern。</p>
+<p><span id="more-17416"></span></p>
+<h4 id="Cache-Aside-Pattern"><a href="#Cache-Aside-Pattern" class="headerlink" title="Cache Aside Pattern"></a>Cache Aside Pattern</h4><p>这是最常用最常用的pattern了。其具体逻辑如下：</p>
+<ul>
+<li><p><strong>失效</strong>：应用程序先从cache取数据，没有得到，则从数据库中取数据，成功后，放到缓存中。</p>
+</li>
+<li><p><strong>命中</strong>：应用程序从cache中取数据，取到后返回。</p>
+</li>
+<li><p><strong>更新</strong>：先把数据存到数据库中，成功后，再让缓存失效。</p>
+</li>
+</ul>
+<p><img src="http://coolshell.cn//wp-content/uploads/2016/07/Cache-Aside-Design-Pattern-Flow-Diagram-e1470471723210.png" alt="Cache-Aside-Design-Pattern-Flow-Diagram"></p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2016/07/Updating-Data-using-the-Cache-Aside-Pattern-Flow-Diagram-1-e1470471761402.png" alt="Updating-Data-using-the-Cache-Aside-Pattern-Flow-Diagram-1"></p>
+<p>注意，我们的更新是先更新数据库，成功后，让缓存失效。那么，这种方式是否可以没有文章前面提到过的那个问题呢？我们可以脑补一下。</p>
+<p>一个是查询操作，一个是更新操作的并发，首先，没有了删除cache数据的操作了，而是先更新了数据库中的数据，此时，缓存依然有效，所以，并发的查询操作拿的是没有更新的数据，但是，更新操作马上让缓存的失效了，后续的查询操作再把数据从数据库中拉出来。而不会像文章开头的那个逻辑产生的问题，后续的查询操作一直都在取老的数据。</p>
+<p>这是标准的design pattern，包括Facebook的论文《<a href="https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final170_update.pdf" target="_blank" rel="external">Scaling Memcache at Facebook</a>》也使用了这个策略。为什么不是写完数据库后更新缓存？你可以看一下Quora上的这个问答《<a href="https://www.quora.com/Why-does-Facebook-use-delete-to-remove-the-key-value-pair-in-Memcached-instead-of-updating-the-Memcached-during-write-request-to-the-backend" target="_blank" rel="external">Why does Facebook use delete to remove the key-value pair in Memcached instead of updating the Memcached during write request to the backend?</a>》，主要是怕两个并发的写操作导致脏数据。</p>
+<p>那么，是不是Cache Aside这个就不会有并发问题了？不是的，比如，一个是读操作，但是没有命中缓存，然后就到数据库中取数据，此时来了一个写操作，写完数据库后，让缓存失效，然后，之前的那个读操作再把老的数据放进去，所以，会造成脏数据。</p>
+<p>但，这个case理论上会出现，不过，实际上出现的概率可能非常低，因为这个条件需要发生在读缓存时缓存失效，而且并发着有一个写操作。而实际上数据库的写操作会比读操作慢得多，而且还要锁表，而读操作必需在写操作前进入数据库操作，而又要晚于写操作更新缓存，所有的这些条件都具备的概率基本并不大。</p>
+<p><strong>所以，这也就是Quora上的那个答案里说的，要么通过2PC或是Paxos协议保证一致性，要么就是拼命的降低并发时脏数据的概率，而Facebook使用了这个降低概率的玩法，因为2PC太慢，而Paxos太复杂。当然，最好还是为缓存设置上过期时间。</strong></p>
+<h4 id="Read-Write-Through-Pattern"><a href="#Read-Write-Through-Pattern" class="headerlink" title="Read/Write Through Pattern"></a>Read/Write Through Pattern</h4><p>我们可以看到，在上面的Cache Aside套路中，我们的应用代码需要维护两个数据存储，一个是缓存（Cache），一个是数据库（Repository）。所以，应用程序比较啰嗦。而Read/Write Through套路是把更新数据库（Repository）的操作由缓存自己代理了，所以，对于应用层来说，就简单很多了。<strong>可以理解为，应用认为后端就是一个单一的存储，而存储自己维护自己的Cache。</strong></p>
+<h5 id="Read-Through"><a href="#Read-Through" class="headerlink" title="Read Through"></a>Read Through</h5><p>Read Through 套路就是在查询操作中更新缓存，也就是说，当缓存失效的时候（过期或LRU换出），Cache Aside是由调用方负责把数据加载入缓存，而Read Through则用缓存服务自己来加载，从而对应用方是透明的。</p>
+<h5 id="Write-Through"><a href="#Write-Through" class="headerlink" title="Write Through"></a>Write Through</h5><p>Write Through 套路和Read Through相仿，不过是在更新数据时发生。当有数据更新的时候，如果没有命中缓存，直接更新数据库，然后返回。如果命中了缓存，则更新缓存，然后再由Cache自己更新数据库（这是一个同步操作）</p>
+<p>下图自来Wikipedia的<a href="https://en.wikipedia.org/wiki/Cache_(computing" target="_blank" rel="external">Cache词条</a>)。其中的Memory你可以理解为就是我们例子里的数据库。</p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2016/07/460px-Write-through_with_no-write-allocation.svg_.png" alt="Write-through_with_no-write-allocation"></p>
+<h4 id="Write-Behind-Caching-Pattern"><a href="#Write-Behind-Caching-Pattern" class="headerlink" title="Write Behind Caching Pattern"></a>Write Behind Caching Pattern</h4><p>Write Behind 又叫 Write Back。<strong>一些了解Linux操作系统内核的同学对write back应该非常熟悉，这不就是Linux文件系统的Page Cache的算法吗？是的，你看基础这玩意全都是相通的。</strong>所以，基础很重要，我已经不是一次说过基础很重要这事了。</p>
+<p>Write Back套路，一句说就是，在更新数据的时候，只更新缓存，不更新数据库，而我们的缓存会异步地批量更新数据库。这个设计的好处就是让数据的I/O操作飞快无比（因为直接操作内存嘛 ），因为异步，write backg还可以合并对同一个数据的多次操作，所以性能的提高是相当可观的。</p>
+<p>但是，其带来的问题是，数据不是强一致性的，而且可能会丢失（我们知道Unix/Linux非正常关机会导致数据丢失，就是因为这个事）。在软件设计上，我们基本上不可能做出一个没有缺陷的设计，就像算法设计中的时间换空间，空间换时间一个道理，有时候，强一致性和高性能，高可用和高性性是有冲突的。软件设计从来都是取舍Trade-Off。</p>
+<p>另外，Write Back实现逻辑比较复杂，因为他需要track有哪数据是被更新了的，需要刷到持久层上。操作系统的write back会在仅当这个cache需要失效的时候，才会被真正持久起来，比如，内存不够了，或是进程退出了等情况，这又叫lazy write。</p>
+<p>在wikipedia上有一张write back的流程图，基本逻辑如下：</p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2016/07/Write-back_with_write-allocation.png" alt="Write-back_with_write-allocation"></p>
+<p>&nbsp;</p>
+<h4 id="再多唠叨一些"><a href="#再多唠叨一些" class="headerlink" title="再多唠叨一些"></a>再多唠叨一些</h4><p>1）上面讲的这些Design Pattern，其实并不是软件架构里的mysql数据库和memcache/redis的更新策略，这些东西都是计算机体系结构里的设计，比如CPU的缓存，硬盘文件系统中的缓存，硬盘上的缓存，数据库中的缓存。<strong>基本上来说，这些缓存更新的设计模式都是非常老古董的，而且历经长时间考验的策略</strong>，所以这也就是，工程学上所谓的Best Practice，遵从就好了。</p>
+<p>2）有时候，我们觉得能做宏观的系统架构的人一定是很有经验的，其实，宏观系统架构中的很多设计都来源于这些微观的东西。比如，云计算中的很多虚拟化技术的原理，和传统的虚拟内存不是很像么？Unix下的那些I/O模型，也放大到了架构里的同步异步的模型，还有Unix发明的管道不就是数据流式计算架构吗？TCP的好些设计也用在不同系统间的通讯中，仔细看看这些微观层面，你会发现有很多设计都非常精妙……所以，<strong>请允许我在这里放句观点鲜明的话——如果你要做好架构，首先你得把计算机体系结构以及很多老古董的基础技术吃透了</strong>。</p>
+<p>3）在软件开发或设计中，我非常建议在之前先去参考一下已有的设计和思路，<strong>看看相应的guideline，best practice或design pattern，吃透了已有的这些东西，再决定是否要重新发明轮子</strong>。千万不要似是而非地，想当然的做软件设计。</p>
+<p>4）上面，我们没有考虑缓存（Cache）和持久层（Repository）的整体事务的问题。比如，更新Cache成功，更新数据库失败了怎么吗？或是反过来。关于这个事，如果你需要强一致性，你需要使用“两阶段提交协议”——prepare, commit/rollback，比如Java 7 的<a href="http://docs.oracle.com/javaee/7/api/javax/transaction/xa/XAResource.html" target="_blank" rel="external">XAResource</a>，还有MySQL 5.7的 <a href="http://dev.mysql.com/doc/refman/5.7/en/xa.html" target="_blank" rel="external">XA Transaction</a>，有些cache也支持XA，比如<a href="http://www.ehcache.org/documentation/3.0/xa.html" target="_blank" rel="external">EhCache</a>。当然，XA这样的强一致性的玩法会导致性能下降，关于分布式的事务的相关话题，你可以看看《<a href="http://coolshell.cn/articles/10910.html" target="_blank" rel="external">分布式系统的事务处理</a>》一文。</p>
+<p>（全文完）</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p><a href="https://cn.100offer.com/how-it-works/?utm_source=coolshell_cn&#038;utm_medium=display&#038;utm_campaign=coolshell_cn_20170615&#038;utm_content=find_new_job&#038;campaign_code=coolshell_cn target=_blank" target="_blank" rel="external"><img src="http://coolshell.cn/imgs/100offer_600_200.png" alt=""></a></p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2009/04/qrcode_for_gh_dd9d8c843f20_860-300x300.jpg" alt=""><br>关注CoolShell微信公众账号可以在手机端搜索文章</p>
+<div style="margin-top: 15px; font-size: 11px;color: #cc0000;"><br><p align="center"><strong>（转载本站文章请注明作者和出处 <a href="http://coolshell.cn/" target="_blank" rel="external">酷 壳 &#8211; CoolShell</a> ，请勿用于任何商业用途）</strong></p></div><br><div style="text-align:center;padding:0px;font-size: 14px;margin-bottom: 50px;">——=== <strong>访问 <a href="http://coolshell.cn/404/ target=_blank" target="_blank" rel="external">酷壳404页面</a> 寻找遗失儿童。</strong> ===——</div>
+
+<div class="wp_rp_wrap  wp_rp_vertical_m"><div class="wp_rp_content"><br><br>### 相关文章<br><br><em>   <a href="http://coolshell.cn/articles/7236.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2012/05/Bannière-Unix-linux-150x150.jpg" alt="用Unix的设计思想来应对多变的需求"></a><a href="http://coolshell.cn/articles/7236.html" target="_blank" rel="external">用Unix的设计思想来应对多变的需求</a>
+</em>   <a href="http://coolshell.cn/articles/8961.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2013/01/kiss-150x150.png" alt="从面向对象的设计模式看软件设计"></a><a href="http://coolshell.cn/articles/8961.html" target="_blank" rel="external">从面向对象的设计模式看软件设计</a><br><em>   <a href="http://coolshell.cn/articles/17680.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2017/02/gitlab-600-150x150.jpg" alt="从Gitlab误删除数据库想到的"></a><a href="http://coolshell.cn/articles/17680.html" target="_blank" rel="external">从Gitlab误删除数据库想到的</a>
+</em>   <a href="http://coolshell.cn/articles/17459.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2016/08/HighAvailability-BK-150x150.png" alt="关于高可用的系统"></a><a href="http://coolshell.cn/articles/17459.html" target="_blank" rel="external">关于高可用的系统</a><br><em>   <a href="http://coolshell.cn/articles/9949.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2013/07/inverted-bookshelf_thumb-150x150.jpg" alt="IoC/DIP其实是一种管理思想"></a><a href="http://coolshell.cn/articles/9949.html" target="_blank" rel="external">IoC/DIP其实是一种管理思想</a>
+</em>   <a href="http://coolshell.cn/articles/6950.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/6.jpg" alt="需求变化与IoC"></a><a href="http://coolshell.cn/articles/6950.html" target="_blank" rel="external">需求变化与IoC</a></div></div></section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <span class="tag-code">程序设计</span>
+
+  <span class="tag-code">Design</span>
+
+  <span class="tag-code">Unix/Linux</span>
+
+  <span class="tag-code">cache</span>
+
+  <span class="tag-code">design pattern</span>
+
+  <span class="tag-code">Linux</span>
+
+      </div>
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    <div id="comments"></div>
+  </article>
+</main>
+
+<script>
+  (function () {
+    var url = 'http://blog.hhw.im/2016/07/27/缓存更新的套路/';
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png') 
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      var imageW = $(this).width()
+      var imageH = $(this).height()
+      
+      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+      zoom = zoom < 1 ? 1 : zoom
+      zoom = zoom > 2 ? 2 : zoom
+      var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+      $('.image-view-wrap').addClass('wrap-active')
+      $('.image-view-wrap img').css({
+        'width': `${imageW}`,
+        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+      })
+      $('html').css('overflow', 'hidden')
+
+      $('.image-view-wrap').on('click', function() {
+        $(this).remove()
+        $('html').attr('style', '')
+      })
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "hhw";
+    if (gitmentConfig != "undefined") {
+      var gitment = new Gitment({
+        owner: "hhw",
+        repo: "hhw.github.io",
+        oauth: {
+          client_id: "undefined",
+          client_secret: "undefined"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | H H W . I M
+<!--Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>-->
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>

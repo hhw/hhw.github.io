@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+  <meta name="description" content="Change is the ONLY constant.">
+  <meta name="keyword" content="undefined">
+  <title>
+    
+      如何读懂并写出装逼的函数式代码 | 如是我曰（IMHO）
+    
+  </title>
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.css" rel="stylesheet">
+  <link href="//cdn.bootcss.com/highlight.js/9.12.0/styles/tomorrow.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/plugins/gitment.css">
+  <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script src="//cdn.bootcss.com/geopattern/1.2.3/js/geopattern.min.js"></script>
+  <script src="//cdn.bootcss.com/nprogress/0.2.0/nprogress.min.js"></script>
+  <script src="/js/qrious.js"></script>
+  <script src="/js/gitment.js"></script>
+</head>
+  <body>
+    <header class="header fixed-header">
+  <div class="header-container">
+    <a class="home-link" href="/">
+      <div class="logo"></div>
+      <span>如是我曰（IMHO）</span>
+    </a>
+    <ul class="right-list">
+      
+        <li class="list-item">
+          
+            <a href="/" class="item-link">Home</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/tags/" class="item-link">Tags</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/archives/" class="item-link">Archives</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/project/" class="item-link">Projects</a>
+          
+        </li>
+      
+        <li class="list-item">
+          
+            <a href="/about/" class="item-link">About</a>
+          
+        </li>
+      
+    </ul>
+    <div class="menu">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </div>
+    <div class="menu-mask">
+      <ul class="menu-list">
+        
+          <li class="menu-item">
+            
+              <a href="/" class="menu-link">Home</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/tags/" class="menu-link">Tags</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/archives/" class="menu-link">Archives</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/project/" class="menu-link">Projects</a>
+            
+          </li>
+        
+          <li class="menu-item">
+            
+              <a href="/about/" class="menu-link">About</a>
+            
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</header>
+
+    <div id="article-banner">
+  <h2>如何读懂并写出装逼的函数式代码</h2>
+  <p class="post-date">2016-10-23</p>
+  <div class="arrow-down">
+    <a href="javascript:;"></a>
+  </div>
+</div>
+<main class="app-body">
+  <article class="post-article">
+    <section class="markdown-content"><p><img src="http://coolshell.cn//wp-content/uploads/2016/10/drawing-recursive-300x204.jpg" alt="drawing-recursive">今天在微博上看到了 有人<a href="http://weibo.com/1655747731/Ee4gU0qNn" target="_blank" rel="external">分享了下面的这段函数式代码</a>，我把代码贴到下面，不过我对原来的代码略有改动，对于函数式的版本，咋一看，的确令人非常费解，仔细看一下，你可能就晕掉了，似乎完全就是天书，看上去非常装逼，哈哈。不过，我感觉解析那段函数式的代码可能会一个比较有趣过程，而且，我以前写过一篇《<a href="http://coolshell.cn/articles/10822.html" target="_blank" rel="external">函数式编程</a>》的入门式的文章，正好可以用这个例子，再升华一下原来的那篇文章，顺便可以向大家更好的介绍很多基础知识，所以写下这篇文章。</p>
+<h4 id="先看代码"><a href="#先看代码" class="headerlink" title="先看代码"></a>先看代码</h4><p>这个代码平淡无奇，就是从一个数组中找到一个数，O(n)的算法，找不到就返回 null。</p>
+<p>下面是正常的 old-school 的方式。不用多说。</p>
+<pre class="brush: jscript; title: ; notranslate">//正常的版本
+function find (x, y) {
+  for ( let i = 0; i &lt; x.length; i++ ) {
+    if ( x[i] == y ) return i;
+  }
+  return null;
+}
+
+let arr = [0,1,2,3,4,5]
+console.log(find(arr, 2))
+console.log(find(arr, 8))</pre>
+
+<p>结果到了函数式成了下面这个样子（好像上面的那些代码在下面若影若现，不过又有点不太一样，为了消掉if语言，让其看上去更像一个表达式，动用了 ? 号表达式）：</p>
+<pre class="brush: jscript; title: ; notranslate">//函数式的版本
+const find = ( f =&gt; f(f) ) ( f =&gt;
+  (next =&gt; (x, y, i = 0) =&gt;
+    ( i &gt;= x.length) ?  null :
+      ( x[i] == y ) ? i :
+        next(x, y, i+1))((...args) =&gt;
+          (f(f))(...args)))
+
+let arr = [0,1,2,3,4,5]
+console.log(find(arr, 2))
+console.log(find(arr, 8))</pre>
+
+<p>为了讲清这个代码，需要先补充一些知识。</p>
+<p><span id="more-17524"></span></p>
+<h4 id="Javascript的箭头函数"><a href="#Javascript的箭头函数" class="headerlink" title="Javascript的箭头函数"></a>Javascript的箭头函数</h4><p>首先先简单说明一下，ECMAScript2015 引入的箭头表达式。箭头函数其实都是匿名函数，其基本语法如下：</p>
+<blockquote>
+<pre class="brush: jscript; gutter: false; title: ; notranslate">(param1, param2, …, paramN) =&gt; { statements } 
+
+(param1, param2, …, paramN) =&gt; expression
+
+     // 等于 :  =&gt; { return expression; } 
+
+
+// 只有一个参数时,括号才可以不加:
+
+(singleParam) =&gt; { statements }
+
+singleParam =&gt; { statements }
+
+
+//如果没有参数,就一定要加括号:
+
+() =&gt; { statements }</pre>
+
+</blockquote>
+<p>下面是一些示例：</p>
+<pre class="brush: jscript; title: ; notranslate">var simple = a =&gt; a &gt; 15 ? 15 : a; 
+simple(16); // 15
+simple(10); // 10
+
+let max = (a, b) =&gt; a &gt; b ? a : b;
+
+// Easy array filtering, mapping, ...
+
+var arr = [5, 6, 13, 0, 1, 18, 23];
+var sum = arr.reduce((a, b) =&gt; a + b);  // 66
+var even = arr.filter(v =&gt; v % 2 == 0); // [6, 0, 18]
+var double = arr.map(v =&gt; v * 2);       // [10, 12, 26, 0, 2, 36, 46]</pre>
+
+<p>看上去不复杂吧。不过，上面前两个 simple 和 max 的例子都把这箭头函数赋值给了一个变量，于是它就有了一个名字。有时候，某些函数在声明的时候就是调用的时候，尤其是函数式编程中，一个函数还对外返回函数的时候。比如下在这个例子：</p>
+<pre class="brush: jscript; title: ; notranslate">function MakePowerFn(power) {
+  return function PowerFn(base) {
+    return Math.pow(base, power);
+  } 
+}
+
+power3 = MakePowerFn(3); //制造一个X的3次方的函数
+power2 = MakePowerFn(2); //制造一个X的2次方的函数
+
+console.log(power3(10)); //10的3次方 = 1000
+console.log(power2(10)); //10的2次方 = 100</pre>
+
+<p>其实，在 MakePowerFn 函数里的那个 PowerFn 根本不需要命名，完全可以写成：</p>
+<pre class="brush: jscript; title: ; notranslate">function MakePowerFn(power) {
+  return function(base) {
+    return Math.pow(base, power);
+  } 
+}</pre>
+
+<p>如果用箭头函数，可以写成：</p>
+<pre class="brush: jscript; title: ; notranslate">MakePowerFn = power  =&gt; {
+  return base =&gt; {
+    return Math.pow(base, power);
+  } 
+}</pre>
+
+<p>我们还可以写得更简洁（如果用表达式的话，就不需要 { 和 }， 以及 return 语句 ）：</p>
+<pre class="brush: jscript; title: ; notranslate">MakePowerFn = power =&gt; base =&gt; Math.pow(base, power)</pre>
+
+<p>我还是加上括号，和换行可能会更清楚一些：</p>
+<pre class="brush: jscript; title: ; notranslate">MakePowerFn = (power) =&gt; (
+  (base) =&gt; (Math.pow(base, power))
+)</pre>
+
+<p>好了，有了上面的知识，我们就可以进入一个更高级的话题——匿名函数的递归。</p>
+<h4 id="匿名函数的递归"><a href="#匿名函数的递归" class="headerlink" title="匿名函数的递归"></a>匿名函数的递归</h4><p>函数式编程立志于用函数表达式消除有状态的函数，以及for/while循环，所以，在函数式编程的世界里是不应该用for/while循环的，而要改用递归（递归的性能很差，所以，一般是用尾递归来做优化，也就是把函数的计算的状态当成参数一层一层的往下传递，这样语言的编译器或解释器就不需要用函数栈来帮你保存函数的内部变量的状态了）。</p>
+<p>好了，那么，匿名函数的递归该怎么做？</p>
+<p>一般来说，递归的代码就是函数自己调用自己，比如我们求阶乘的代码：</p>
+<pre class="brush: jscript; title: ; notranslate">
+function fact(n){
+  return n==0 ? 1 :  n * fact(n-1);
+};
+result = fact(5);
+</pre>
+
+<p>在匿名函数下，这个递归该怎么写呢？对于匿名函数来说，<strong>我们可以把匿名函数当成一个参数传给另外一个函数，因为函数的参数有名字，所以就可以调用自己了</strong>。 如下所示：</p>
+<pre class="brush: jscript; title: ; notranslate">function combinator(func) {
+  func(func);
+}</pre>
+
+<p>这个是不是有点作弊的嫌疑？Anyway，我们再往下，把上面这个函数整成箭头函数式的匿名函数的样子。</p>
+<pre class="brush: jscript; title: ; notranslate">（func) =&gt; (func(func)) </pre>
+
+<p>现在你似乎就不像作弊了吧。把上面那个求阶乘的函数套进来是这个样子：</p>
+<p>首先，先重构一下fact，把fact中自己调用自己的名字去掉：</p>
+<pre class="brush: jscript; title: ; notranslate">function fact(func, n) {
+  return n==0 ? 1 :  n * func(func, n-1);
+}
+
+fact(fact, 5); //输出120
+</pre>
+
+<p>然后，我们再把上面这个版本变成箭头函数的匿名函数版：</p>
+<pre class="brush: jscript; title: ; notranslate">
+var fact = (func, n) =&gt; ( n==0 ? 1 :  n * func(func, n-1) )
+fact(fact, 5)
+</pre>
+
+<p>这里，我们依然还要用一个fact来保存这个匿名函数，我们继续，我们要让匿名函数声明的时候，就自己调用自己。</p>
+<p>也就是说，我们要把 </p>
+<pre class="brush: jscript; title: ; notranslate">(func, n) =&gt; ( n==0 ? 1 :  n * func(func, n-1) )</pre>
+
+<p>这个函数当成调用参数，传给下面这个函数：</p>
+<pre class="brush: jscript; title: ; notranslate">(func, x) =&gt; func(func, x) </pre>
+
+<p>最终我们得到下面的代码：</p>
+<pre class="brush: jscript; title: ; notranslate"> 
+( (func, x) =&gt; func(func, x) ) (  //函数体
+  (func, n) =&gt; ( n==0 ? 1 :  n * func(func, n-1) ), //第一个调用参数
+  5 //第二调用参数
+); </pre>
+
+<p>好像有点绕，anyway, 你看懂了吗？没事，我们继续。</p>
+<h4 id="动用高阶函数的递归"><a href="#动用高阶函数的递归" class="headerlink" title="动用高阶函数的递归"></a>动用高阶函数的递归</h4><p>但是上面这个递归的匿名函数在自己调用自己，所以，代码中有hard code的实参。我们想实参去掉，如何去掉呢？我们可以参考前面说过的那个 MakePowerFn 的例子，不过这回是递归版的高阶函数了。</p>
+<pre class="brush: jscript; title: ; notranslate">HighOrderFact = function(func){
+  return function(n){
+    return n==0 ? 1 : n * func(func)(n-1);
+  };
+};</pre>
+
+<p>我们可以看，上面的代码简单说来就是，<strong>需要一个函数做参数，然后返回这个函数的递归版本</strong>。那么，我们怎么调用呢？</p>
+<pre class="brush: jscript; title: ; notranslate">fact = HighOrderFact(HighOrderFact);
+fact(5); </pre>
+
+<p>连起来写就是：</p>
+<pre class="brush: jscript; title: ; notranslate">HighOrderFact ( HighOrderFact ) ( 5 )</pre>
+
+<p>但是，这样让用户来调用很不爽，所以，以我们一个函数把 <strong> HighOrderFact ( HighOrderFact ) </strong> 给代理一下：</p>
+<pre class="brush: jscript; title: ; notranslate">fact = function ( hifunc ) {
+  return hifunc ( hifunc );
+} (
+  //调用参数是一个函数
+  function (func) { 
+    return function(n){
+      return n==0 ? 1 : n * func(func)(n-1);
+    };
+  }
+);
+
+fact(5); //于是我们就可以直接使用了</pre>
+
+<p>用箭头函数重构一下，是不是简洁了一些？</p>
+<pre class="brush: jscript; title: ; notranslate">fact = (highfunc =&gt; highfunc ( highfunc ) ) (
+  func =&gt; n =&gt;  n==0 ? 1 : n * func(func)(n-1)
+);</pre>
+
+<p>上面就是我们最终版的阶乘的函数式代码。</p>
+<h4 id="回顾之前的程序"><a href="#回顾之前的程序" class="headerlink" title="回顾之前的程序"></a>回顾之前的程序</h4><p>我们再来看那个查找数组的正常程序：</p>
+<pre class="brush: jscript; title: ; notranslate">//正常的版本
+function find (x, y) {
+  for ( let i = 0; i &lt; x.length; i++ ) {
+    if ( x[i] == y ) return i;
+  }
+  return null;
+}</pre>
+
+<p>先把for干掉，搞成递归版本：</p>
+<pre class="brush: jscript; title: ; notranslate">function find (x, y, i=0) {
+  if ( i &gt;= x.length ) return null;
+  if ( x[i] == y ) return i;
+  return find(x, y, i+1);
+}</pre>
+
+<p>然后，写出带实参的匿名函数的版本（注：其中的if代码被重构成了 ？号表达式）：</p>
+<pre class="brush: jscript; title: ; notranslate">( (func, x, y, i) =&gt; func(func, x, y, i) ) (  //函数体
+  (func, x, y, i=0) =&gt; (
+      i &gt;= x.length ?  null :
+         x[i] == y  ?  i : func (func, x, y, i+1)
+  ), //第一个调用参数
+  arr, //第二调用参数
+  2 //第三调用参数
+)</pre>
+
+<p>最后，引入高阶函数，去除实参：</p>
+<pre class="brush: jscript; title: ; notranslate">const find = ( highfunc =&gt; highfunc( highfunc ) ) (
+   func =&gt; (x, y, i = 0) =&gt; (
+     i &gt;= x.length ?  null :
+           x[i] == y  ?  i : func (func) (x, y, i+1)
+   )
+);</pre>
+
+<p>注：函数式编程装逼时一定要用const字符，这表示我写的函数里的状态是 immutable 的，天生骄傲！</p>
+<p>再注：我写的这个比原来版的那个简单了很多，原来版本的那个又在函数中套了一套 next， 而且还动用了不定参数，当然，如果你想装逼装到天上的，理论上来说，你可以套N层，呵呵。</p>
+<p><strong>现在，你可以体会到，如此逼装的是怎么来的了吧？</strong>。</p>
+<h4 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h4><p>你还别说这就是装逼，简单来说，我们可以使用数学的方式来完成对复杂问题的描述，那怕是递归。其实，这并不是新鲜的东西，这是Alonzo Church 和 Haskell Curry 上世纪30年代提出来的东西，这个就是 Y Combinator 的玩法，关于这个东西，你可以看看下面两篇文章：</p>
+<p>《<a href="http://mvanier.livejournal.com/2897.html" target="_blank" rel="external">The Y Combinator (Slight Return)</a>》，</p>
+<p>《<a href="https://en.wikipedia.org/wiki/Fixed-point_combinator" target="_blank" rel="external">Wikipedia: Fixed-point combinator</a>》</p>
+<p>（全文完）</p>
+<p><a href="https://cn.100offer.com/how-it-works/?utm_source=coolshell_cn&#038;utm_medium=display&#038;utm_campaign=coolshell_cn_20170615&#038;utm_content=find_new_job&#038;campaign_code=coolshell_cn target=_blank" target="_blank" rel="external"><img src="http://coolshell.cn/imgs/100offer_600_200.png" alt=""></a></p>
+<p><img src="http://coolshell.cn//wp-content/uploads/2009/04/qrcode_for_gh_dd9d8c843f20_860-300x300.jpg" alt=""><br>关注CoolShell微信公众账号可以在手机端搜索文章</p>
+<div style="margin-top: 15px; font-size: 11px;color: #cc0000;"><br><p align="center"><strong>（转载本站文章请注明作者和出处 <a href="http://coolshell.cn/" target="_blank" rel="external">酷 壳 &#8211; CoolShell</a> ，请勿用于任何商业用途）</strong></p></div><br><div style="text-align:center;padding:0px;font-size: 14px;margin-bottom: 50px;">——=== <strong>访问 <a href="http://coolshell.cn/404/ target=_blank" target="_blank" rel="external">酷壳404页面</a> 寻找遗失儿童。</strong> ===——</div>
+
+<div class="wp_rp_wrap  wp_rp_vertical_m"><div class="wp_rp_content"><br><br>### 相关文章<br><br><em>   <a href="http://coolshell.cn/articles/11265.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2014/03/snake-hat-new-year-schedule-800x960-150x150.jpg" alt="Python修饰器的函数式编程"></a><a href="http://coolshell.cn/articles/11265.html" target="_blank" rel="external">Python修饰器的函数式编程</a>
+</em>   <a href="http://coolshell.cn/articles/10822.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2013/12/yoda-lambda-150x150.png" alt="函数式编程"></a><a href="http://coolshell.cn/articles/10822.html" target="_blank" rel="external">函数式编程</a><br><em>   <a href="http://coolshell.cn/articles/17929.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2017/06/go-hardhat-150x150.png" alt="Go语言的修饰器编程"></a><a href="http://coolshell.cn/articles/17929.html" target="_blank" rel="external">Go语言的修饰器编程</a>
+</em>   <a href="http://coolshell.cn/articles/8309.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/plugins/wordpress-23-related-posts-plugin/static/thumbs/23.jpg" alt="C/C++语言中闭包的探究及比较"></a><a href="http://coolshell.cn/articles/8309.html" target="_blank" rel="external">C/C++语言中闭包的探究及比较</a><br><em>   <a href="http://coolshell.cn/articles/11466.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2014/04/c99-150x150.jpg" alt="C语言的整型溢出问题"></a><a href="http://coolshell.cn/articles/11466.html" target="_blank" rel="external">C语言的整型溢出问题</a>
+</em>   <a href="http://coolshell.cn/articles/17634.html" target="_blank" rel="external"><img src="http://coolshell.cn//wp-content/uploads/2017/01/pretty-code-150x150.gif" alt="Chrome开发者工具的小技巧"></a><a href="http://coolshell.cn/articles/17634.html" target="_blank" rel="external">Chrome开发者工具的小技巧</a></div></div></section>
+    
+      <div class="tags">
+        <span>Tags:</span>
+        
+  <span class="tag-code">杂项资源</span>
+
+  <span class="tag-code">程序设计</span>
+
+  <span class="tag-code">Javascript</span>
+
+  <span class="tag-code">编程语言</span>
+
+  <span class="tag-code">functional</span>
+
+  <span class="tag-code">Closure</span>
+
+  <span class="tag-code">Y combinator</span>
+
+      </div>
+    
+    <div class="money-like">
+      <div class="reward-btn">
+        赏
+        <span class="money-code">
+          <span class="alipay-code">
+            <div class="code-image"></div>
+            <b>使用支付宝打赏</b>
+          </span>
+          <span class="wechat-code">
+            <div class="code-image"></div>
+            <b>使用微信打赏</b>
+          </span>
+        </span>
+      </div>
+      <p class="notice">若你觉得我的文章对你有帮助，欢迎点击上方按钮对我打赏</p>
+    </div>
+    <div class="qrcode">
+      <canvas id="share-qrcode"></canvas>
+      <p class="notice">扫描二维码，分享此文章</p>
+    </div>
+    <div id="comments"></div>
+  </article>
+</main>
+
+<script>
+  (function () {
+    var url = 'http://blog.hhw.im/2016/10/23/如何读懂并写出装逼的函数式代码/';
+    $('#article-banner').geopattern(url)
+    $('.header').removeClass('fixed-header')
+
+     // error image
+    $(".markdown-content img").on('error', function() {
+      $(this).attr('src', 'http://file.muyutech.com/error-img.png') 
+    })
+
+    // zoom image
+    $(".markdown-content img").on('click', function() {
+      var src = $(this).attr('src')
+      var imageW = $(this).width()
+      var imageH = $(this).height()
+      
+      var zoom = ($(window).width() * 0.95 / imageW).toFixed(2)
+      zoom = zoom < 1 ? 1 : zoom
+      zoom = zoom > 2 ? 2 : zoom
+      var transY = (($(window).height() - imageH) / 2).toFixed(2)
+
+      $('body').append('<div class="image-view-wrap"><div class="image-view-inner"><img src="'+ src +'" /></div></div>')
+      $('.image-view-wrap').addClass('wrap-active')
+      $('.image-view-wrap img').css({
+        'width': `${imageW}`,
+        'transform': `translate3d(0, ${transY}px, 0) scale3d(${zoom}, ${zoom}, 1)`
+      })
+      $('html').css('overflow', 'hidden')
+
+      $('.image-view-wrap').on('click', function() {
+        $(this).remove()
+        $('html').attr('style', '')
+      })
+    })
+
+    // qrcode
+    var qr = new QRious({
+      element: document.getElementById('share-qrcode'),
+      value: document.location.href
+    });
+
+    // gitment
+    var gitmentConfig = "hhw";
+    if (gitmentConfig != "undefined") {
+      var gitment = new Gitment({
+        owner: "hhw",
+        repo: "hhw.github.io",
+        oauth: {
+          client_id: "undefined",
+          client_secret: "undefined"
+        },
+        theme: {
+          render(state, instance) {
+            const container = document.createElement('div')
+            container.lang = "en-US"
+            container.className = 'gitment-container gitment-root-container'
+            container.appendChild(instance.renderHeader(state, instance))
+            container.appendChild(instance.renderEditor(state, instance))
+            container.appendChild(instance.renderComments(state, instance))
+            container.appendChild(instance.renderFooter(state, instance))
+            return container;
+          }
+        }
+      })
+      gitment.render(document.getElementById('comments'))
+    }
+  })();
+</script>
+
+    <div class="scroll-top">
+  <span class="arrow-icon"></span>
+</div>
+    <footer class="app-footer">
+  <p class="copyright">
+    &copy; 2017 | H H W . I M
+<!--Proudly powered by <a href="https://hexo.io" target="_blank">Hexo</a>
+    <br>
+    Theme by <a href="https://github.com/yanm1ng">yanm1ng</a>-->
+  </p>
+</footer>
+
+<script>
+  function async(u, c) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+</script>
+<script>
+  async("//cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+    FastClick.attach(document.body);
+  })
+</script>
+<script>
+  var hasLine = 'true';
+  async("//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js", function(){
+    $('figure pre').each(function(i, block) {
+      var figure = $(this).parents('figure');
+      if (hasLine == 'false') {
+        figure.find('.gutter').hide();
+      }
+      var lang = figure.attr('class').split(' ')[1] || 'code';
+      var codeHtml = $(this).html();
+      var codeTag = document.createElement('code');
+      codeTag.className = lang;
+      codeTag.innerHTML = codeHtml;
+      $(this).attr('class', '').empty().html(codeTag);
+      figure.attr('data-lang', lang.toUpperCase());
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+<!-- Baidu Tongji -->
+
+<script src="/js/script.js"></script>
+
+  </body>
+</html>
