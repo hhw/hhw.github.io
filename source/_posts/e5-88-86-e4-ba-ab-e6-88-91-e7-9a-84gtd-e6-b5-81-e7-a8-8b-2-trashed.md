@@ -1,0 +1,60 @@
+---
+title: 分享我的GTD流程
+id: 231
+categories:
+  - GTD
+  - 工作
+date: 2006-10-28 06:14:00
+tags:
+---
+
+<span class="Apple-style-span" style="font-family:Verdana;font-size:11px;"><div class="postTitle"><span class="Apple-style-span" style="font-size:16px;">两个星期前，我偶然看到有关Get Things Done的一些文章，本来也没有在意，觉得应该是很平常的坊间小技，而且对我而言应该没有什么用处。</span>
+</div><div class="postText">
+
+<span class="Apple-style-span" style="font-size:medium;">但是当我看到这张图的时候，我一头扎了进去！—— 相当有道理……</span>
+
+<span class="Apple-style-span" style="font-size:medium;">![GTD流程图](http://blog.donews.com/images/blog_donews_com/dovinci/91599/o_gtd.JPG)
+其实这个GTD方法是有效地控制杂念，让你放下包袱的最好办法。我在工作上试行了八天，非常有效率，起码几件经年累月积累下来的事情都干掉了，Outlook的Inbox也史无前例地清空了。</span>
+
+<span class="Apple-style-span" style="font-size:medium;">因为工作需要和生活习惯，我基本上是在电脑面前的，现在我使用Google的两个服务来协助我的GTD：Google Calendar和Google Notebook。配合Google个性化主页，非常好用。</span>
+
+<span class="Apple-style-span" style="font-size:medium;">GTD的基本要义是记下你的念头，清空你的大脑。</span>
+
+<span class="Apple-style-span" style="font-size:medium;">分享一下我的做法：</span>
+
+<span class="Title"><span class="Apple-style-span" style="font-size:medium;">一、我的Inbox：</span></span><span class="Apple-style-span" style="font-size:medium;">
+　　效率手册、随身便签（纸条和手机）、Outlook和GMail、Google Notebook里面开一个名为Inbox便签本。
+　　其实如果你有个PDA，大可以全部合在一起。注意Inbox不能太多，会混乱。当然，如果有paper work的话，我桌子上面有一个文件托盘，只有一个！</span>
+
+<span class="Apple-style-span" style="font-size:medium;">我的Google Notebook分类：
+　　除了时间确定的约会全部放到Google Calendar了。使用Google Notebook来完成我的GTD处理流程。包含如下分类（每个分类都是一个独立的Notebook）：
+1、任务环境：
+　　我是按照@Work、@Home和@Idle分为三个任务环境。对应于公司任务、自我时间和空闲时间，可以从相应的Notebook里面拿任务。每个任务环境分为NextAction（任务队列）、WaitingFor（安排他人完成的任务队列）和Someday/Maybe（这个比较有学问:-)）三种或少于三种的Section。Google Notebook可以非常漂亮地完成这个子类划分。
+2、备忘目录：
+　　我使用著名的43 folder的方法，即1到31日共31个Section（可以理解为目录），一月到十二月共12个Section，一个43个文件夹。什么作用呢？如果你确定某日要做的任务，就放到某日的文件夹。注意：只区分当月的，其它的均分类到月文件夹即可。43 folder讲究文件夹的排列次序：比如今天是10月28日，那么29日的排在第一个，29日、30日……31日、十一月、1日、2日……28日、十二月、一月……十月。循环排列的目的是每天你都需要把明天那个文件夹清空。这些文件夹是你自己给自己留的锦囊。
+3、中间目录：
+　　我有一个项目任务分解目录Projects和一个协调目标计划目录Harmony。
+　　Projects：对于那些在Inbox里面的任务不是可以一步做完的，在这个目录分解成小任务。
+　　Harmony：每周末做。协调自己在身体、心智、社交、灵感、工作以及其它角色的周计划。
+4、完成任务：
+　　这个不用解释了，完成的任务会放到这里，按照环境放置。</span>
+
+<span class="Apple-style-span" style="font-size:16px;">也许你会问，为何我选择Google Notebook呢？其实主要是因为两个原因：网络服务和独立的任务便签条。前者让我无时无刻都可以了解自己的下一步安排，后者可以节省我的时间，输入任务一次，通过拖拉操作就可以进行相应处理。</span>
+
+<span class="Title"><span class="Apple-style-span" style="font-size:medium;">二、我的处理流程：</span></span>
+
+<span class="Apple-style-span" style="font-size:medium;">每个人按照以上的流程图配合这些存放设置就可以进行处理了。我的处理流程是，一旦有空就</span>
+
+<span class="Apple-style-span" style="font-size:medium;">1、检查所有的Inbox：
+　　我是按照时间次序，一件一件处理，无论是电子的还是手工记录，直接把Inbox里面的材料变成以下情况之一，然后完全忘记它们！
+ － 约会加入Calendar
+ － 特定环境的下一步任务（肯定是今天要做完的）
+ － 安排别人去完成，马上处理（关照、电话、邮件），放入WaitingFor
+ － 安排入备忘目录 （43 Folders）
+ － 设立项目，如果不急，现在先不分解
+ － 删除、以后再说（Some Day）或者本身是个参考资料（Reference）
+2、检查NextAction：干活
+3、如果干完了，浏览周计划Harmony
+4、如果还有时间，到Project里面去分解任务
+5、还有时间？一般不可能，还有时间就去看看明天以后的任务吧。或者贡献给思考……</span>
+</div></span>

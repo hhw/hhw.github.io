@@ -1,0 +1,26 @@
+---
+title: 身体是一切本钱
+id: 153
+categories:
+  - 如是我曰
+date: 2009-03-22 14:19:00
+tags:
+---
+
+　　无论在什么时候，身体总是最后翻本的青山。
+　　今天看到一些医典上面的理论，早睡早起调养身体，决定试之。再次将睡眠从０点～６点调整至２３点～５点，这样早上比较从容，还能准备一天的活动。
+　　中午饭后需要消化，应静坐闭目几刻。
+<div>　　于是作息时间应调整为：</div><div>
+
+*   ５点整：起床修整，准备一天的工作
+
+*   ６点半：早餐及洗漱
+
+*   七点半：出门上班
+
+*   午餐后：闭目一、两刻
+
+*   ２０点：开始学习
+
+*   ２２点：练习修整调心上床看书催眠<div>　　经过这样的调整，似乎时间变少了，但是其实是一样的，本来是睡前完成一切，现在分成两块而已，况早起时间效率可能更高。</div><div>　　纪录一下，尝试一周，以观效果。</div><div><span class="Apple-style-span" style="font-size:small;">
+</span></div><div><span class="Apple-style-span" style="font-weight:bold;"><span class="Apple-style-span" style="color:rgb(255,0,0);"><span class="Apple-style-span" style="font-size:small;">【后记】</span></span></span></div><div><span class="Apple-style-span" style="color:rgb(102,0,204);"><span class="Apple-style-span" style="font-size:small;">至今快三周了，虽然10点停止工作对我而言很难，但是早睡早起的习惯确实带来一些变化。</span></span></div><div><span class="Apple-style-span" style="color:rgb(102,0,204);"><span class="Apple-style-span" style="font-size:small;">一切开始变得美好……</span></span></div></div>
