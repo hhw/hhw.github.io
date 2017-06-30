@@ -17,13 +17,13 @@
  7. WordPress will then import each of the posts, pages, comments, categories, etc.
     contained in this file into your site.
 -->
-<!-- generator="WordPress.com" created="2017-06-30 05:09"-->
+<!-- generator="WordPress.com" created="2017-06-30 08:43"-->
 <rss version="2.0" xmlns:excerpt="http://wordpress.org/export/1.2/excerpt/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:wfw="http://wellformedweb.org/CommentAPI/" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:wp="http://wordpress.org/export/1.2/">
   <channel>
 <title>生在柒壹</title>
 <link>https://in70s.wordpress.com</link>
 <description>迷思与神话、柒藝、恕我直言、如是我曰等hhw博客的升级版。</description>
-<pubDate>Fri, 30 Jun 2017 05:09:16 +0000</pubDate>
+<pubDate>Fri, 30 Jun 2017 08:43:22 +0000</pubDate>
 <language>en</language>
 <wp:wxr_version>1.2</wp:wxr_version>
 <wp:base_site_url>http://wordpress.com/</wp:base_site_url>
@@ -35,152 +35,6 @@
   <wp:author_first_name><![CDATA[]]></wp:author_first_name>
   <wp:author_last_name><![CDATA[]]></wp:author_last_name>
 </wp:author>
-<wp:category>
-  <wp:term_id>3574</wp:term_id>
-  <wp:category_nicename>%e7%94%9f%e6%b4%bb</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[生活]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>30457</wp:term_id>
-  <wp:category_nicename>%e9%9a%8f%e6%83%b3</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[随想]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>2392</wp:term_id>
-  <wp:category_nicename>%e9%9f%b3%e4%b9%90</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[音乐]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>19501</wp:term_id>
-  <wp:category_nicename>%e8%a7%82%e7%82%b9</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[观点]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>4369</wp:term_id>
-  <wp:category_nicename>%e8%af%bb%e4%b9%a6</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[读书]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>4063</wp:term_id>
-  <wp:category_nicename>%e8%bd%af%e4%bb%b6</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[软件]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>81</wp:term_id>
-  <wp:category_nicename>google</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[Google]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>1247</wp:term_id>
-  <wp:category_nicename>gtd</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[GTD]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>15759</wp:term_id>
-  <wp:category_nicename>imho</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[IMHO]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>1138755</wp:term_id>
-  <wp:category_nicename>the-myth</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[The Myth]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>1</wp:term_id>
-  <wp:category_nicename>uncategorized</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[Uncategorized]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>163734770</wp:term_id>
-  <wp:category_nicename>wtl-c</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[WTL C++]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>163617970</wp:term_id>
-  <wp:category_nicename>%e5%85%b3%e7%88%b1%e6%98%93%e8%be%b0</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[关爱易辰]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>254235</wp:term_id>
-  <wp:category_nicename>%e5%9b%9e%e5%bf%86</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[回忆]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>163617971</wp:term_id>
-  <wp:category_nicename>%e5%9b%9e%e5%bf%86-%e6%97%85%e8%a1%8c</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[回忆 旅行]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>163617972</wp:term_id>
-  <wp:category_nicename>%e5%a6%82%e6%98%af%e6%88%91%e6%9b%b0</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[如是我曰]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>22076</wp:term_id>
-  <wp:category_nicename>%e5%b7%a5%e5%85%b7</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[工具]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>1898</wp:term_id>
-  <wp:category_nicename>%e5%b7%a5%e4%bd%9c</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[工作]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>7260</wp:term_id>
-  <wp:category_nicename>%e6%97%85%e6%b8%b8</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[旅游]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>163617973</wp:term_id>
-  <wp:category_nicename>%e6%9f%92%e8%97%9d</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[柒藝]]></wp:cat_name>
-</wp:category>
-<wp:category>
-  <wp:term_id>146005</wp:term_id>
-  <wp:category_nicename>%e4%b9%a6%e6%b3%95</wp:category_nicename>
-  <wp:category_parent/>
-  <wp:cat_name><![CDATA[书法]]></wp:cat_name>
-</wp:category>
-<wp:tag>
-  <wp:term_id>9119</wp:term_id>
-  <wp:tag_slug>gfw</wp:tag_slug>
-  <wp:tag_name><![CDATA[GFW]]></wp:tag_name>
-</wp:tag>
-<wp:tag>
-  <wp:term_id>120</wp:term_id>
-  <wp:tag_slug>mobile</wp:tag_slug>
-  <wp:tag_name><![CDATA[mobile]]></wp:tag_name>
-</wp:tag>
-<wp:tag>
-  <wp:term_id>38983</wp:term_id>
-  <wp:tag_slug>steve-jobs</wp:tag_slug>
-  <wp:tag_name><![CDATA[Steve Jobs]]></wp:tag_name>
-</wp:tag>
-<wp:tag>
-  <wp:term_id>1898</wp:term_id>
-  <wp:tag_slug>%e5%b7%a5%e4%bd%9c</wp:tag_slug>
-  <wp:tag_name><![CDATA[工作]]></wp:tag_name>
-</wp:tag>
 <generator>http://wordpress.com/</generator>
 <image>
 		<url>https://s2.wp.com/i/buttonw-com.png</url>
@@ -188,472 +42,6 @@
 		<link>https://in70s.wordpress.com</link>
 	</image>
 	<item>
-  <title>About</title>
-  <link>https://in70s.wordpress.com/about/</link>
-  <pubDate>Sun, 21 Apr 2013 10:09:16 +0000</pubDate>
-  <dc:creator>mrhhw</dc:creator>
-  <guid isPermaLink="false">http://in70s.wordpress.com/?page_id=1</guid>
-  <description/>
-  <content:encoded><![CDATA[This is an example of a page. Unlike posts, which are displayed on your blog’s front page in the order they’re published, pages are better suited for more timeless content that you want to be easily accessible, like your About or Contact information. Click the Edit link to make changes to this page or <a title="Direct link to Add New in the Admin Dashboard" href="/wp-admin/post-new.php?post_type=page">add another page</a>.]]></content:encoded>
-  <excerpt:encoded><![CDATA[]]></excerpt:encoded>
-  <wp:post_id>1</wp:post_id>
-  <wp:post_date>2013-04-21 10:09:16</wp:post_date>
-  <wp:post_date_gmt>2013-04-21 10:09:16</wp:post_date_gmt>
-  <wp:comment_status>open</wp:comment_status>
-  <wp:ping_status>open</wp:ping_status>
-  <wp:post_name>about</wp:post_name>
-  <wp:status>publish</wp:status>
-  <wp:post_parent>0</wp:post_parent>
-  <wp:menu_order>0</wp:menu_order>
-  <wp:post_type>page</wp:post_type>
-  <wp:post_password/>
-  <wp:is_sticky>0</wp:is_sticky>
-</item>
-<item>
-  <title>关于我</title>
-  <link>https://in70s.wordpress.com/about-2/</link>
-  <pubDate>Mon, 25 Oct 2010 22:36:02 +0000</pubDate>
-  <dc:creator>mrhhw</dc:creator>
-  <guid isPermaLink="false">http://hhw.7-ee.org/?page_id=2</guid>
-  <description/>
-  <content:encoded><![CDATA[Nothing special, old Henry. That's all.
-
-IT改变生活！]]></content:encoded>
-  <excerpt:encoded><![CDATA[]]></excerpt:encoded>
-  <wp:post_id>3</wp:post_id>
-  <wp:post_date>2010-10-25 22:36:02</wp:post_date>
-  <wp:post_date_gmt>2010-10-25 22:36:02</wp:post_date_gmt>
-  <wp:comment_status>open</wp:comment_status>
-  <wp:ping_status>open</wp:ping_status>
-  <wp:post_name>about-2</wp:post_name>
-  <wp:status>publish</wp:status>
-  <wp:post_parent>0</wp:post_parent>
-  <wp:menu_order>0</wp:menu_order>
-  <wp:post_type>page</wp:post_type>
-  <wp:post_password/>
-  <wp:is_sticky>0</wp:is_sticky>
-  <wp:postmeta>
-    <wp:meta_key>_publicize_pending</wp:meta_key>
-    <wp:meta_value><![CDATA[1]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_page_template</wp:meta_key>
-    <wp:meta_value><![CDATA[default]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_edit_last</wp:meta_key>
-    <wp:meta_value><![CDATA[23731899]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>original_post_id</wp:meta_key>
-    <wp:meta_value><![CDATA[2]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_old_slug</wp:meta_key>
-    <wp:meta_value><![CDATA[2]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:comment>
-    <wp:comment_id>1</wp:comment_id>
-    <wp:comment_author><![CDATA[about Lola Luna]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://lolaluna.2itb.com</wp:comment_author_url>
-    <wp:comment_author_IP>219.91.184.47</wp:comment_author_IP>
-    <wp:comment_date>2011-12-15 22:08:35</wp:comment_date>
-    <wp:comment_date_gmt>2011-12-15 14:08:35</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Recomended......</strong>
-
-[...]This post recomended to my visitors[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2011-12-15 14:08:35</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>2</wp:comment_id>
-    <wp:comment_author><![CDATA[{crucial memory coupon|Save|crucial|memory|coupon|crucial memory|Great Crucial memory|code|coupon code}]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://crucialmemorycoupon.com/</wp:comment_author_url>
-    <wp:comment_author_IP>62.84.74.166</wp:comment_author_IP>
-    <wp:comment_date>2012-01-05 05:55:14</wp:comment_date>
-    <wp:comment_date_gmt>2012-01-04 21:55:14</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>A crucial {article|post|write-up} to read!...</strong>
-
-Everybody requirements to read this article and preserve it in their memory. There is a gread deal of info in right here....]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2012-01-04 21:55:14</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>3</wp:comment_id>
-    <wp:comment_author><![CDATA[appliance repair houston with same day service]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://appliancerepairhouston.worshipintoheaven.com</wp:comment_author_url>
-    <wp:comment_author_IP>221.3.153.72</wp:comment_author_IP>
-    <wp:comment_date>2013-01-26 16:36:58</wp:comment_date>
-    <wp:comment_date_gmt>2013-01-26 08:36:58</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Appliance Repair Houston...</strong>
-
-[...]Wonderful story, reckoned we could combine some unrelated data, nonetheless definitely really worth taking a look, whoa did 1 understand about Mid East has got extra problerms at the same time [...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-01-26 08:36:58</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>4</wp:comment_id>
-    <wp:comment_author><![CDATA[another kristen howe chemistry trick]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.kristenhowechemistry.com/</wp:comment_author_url>
-    <wp:comment_author_IP>125.39.66.154</wp:comment_author_IP>
-    <wp:comment_date>2013-01-28 14:25:12</wp:comment_date>
-    <wp:comment_date_gmt>2013-01-28 06:25:12</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Kristen Howe Chemistry...</strong>
-
-[...]here are some links to web pages that we link to due to the fact we believe they are really worth visiting[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-01-28 06:25:12</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>5</wp:comment_id>
-    <wp:comment_author><![CDATA[v6tfmijbtfvxerxse]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.v6tfmijbtfvxerxse.com/</wp:comment_author_url>
-    <wp:comment_author_IP>5.135.43.154</wp:comment_author_IP>
-    <wp:comment_date>2013-04-11 02:08:23</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-10 18:08:23</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]one of our guests just lately suggested the following website[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-10 18:08:23</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>6</wp:comment_id>
-    <wp:comment_author><![CDATA[nujnuyvtcrcezwtgvy]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.nujnuyvtcrcezwtgvy.com/</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-15 01:19:11</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-14 17:19:11</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]we like to honor numerous other internet web-sites around the net, even though they aren’t linked to us, by linking to them. Under are some webpages worth checking out[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-14 17:19:11</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>7</wp:comment_id>
-    <wp:comment_author><![CDATA[xecttgvbyuhnmik]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.xecttgvbyuhnmik.com/</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-15 22:57:35</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-15 14:57:35</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]we came across a cool internet site that you just may love. Take a search in case you want[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-15 14:57:35</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>8</wp:comment_id>
-    <wp:comment_author><![CDATA[xecttgvbyuhnmik]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.vtfvtgcdrxrdx.com/</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-17 00:14:42</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-16 16:14:42</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]check beneath, are some completely unrelated web-sites to ours, even so, they are most trustworthy sources that we use[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-16 16:14:42</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>9</wp:comment_id>
-    <wp:comment_author><![CDATA[radio]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>https://www.youtube.com/em0tan</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 11:48:21</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 03:48:21</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]although internet sites we backlink to below are considerably not associated to ours, we feel they are basically worth a go as a result of, so possess a look[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 03:48:21</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>10</wp:comment_id>
-    <wp:comment_author><![CDATA[How To Seduce Women]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.youtube.com/watch?v=hkSTAzyAsws</wp:comment_author_url>
-    <wp:comment_author_IP>5.135.43.154</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 12:15:22</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 04:15:22</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]although web-sites we backlink to below are considerably not connected to ours, we feel they may be actually worth a go by way of, so possess a look[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 04:15:22</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>11</wp:comment_id>
-    <wp:comment_author><![CDATA[Forex]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.forexpro.co/</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 12:31:34</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 04:31:34</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]very handful of sites that occur to be detailed beneath, from our point of view are undoubtedly properly really worth checking out[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 04:31:34</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>12</wp:comment_id>
-    <wp:comment_author><![CDATA[Toshiba Laptop AC Adapter]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.luxecartier.com/sony-vaio-s-series-vpcs11v9e-b-buyers-guide/</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 14:02:46</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 06:02:46</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]The data mentioned inside the article are several of the very best available [...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 06:02:46</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>13</wp:comment_id>
-    <wp:comment_author><![CDATA[NCAA Snapbacks]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://ncaasnapbackhats.webs.com/</wp:comment_author_url>
-    <wp:comment_author_IP>5.135.36.38</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 14:42:25</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 06:42:25</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]one of our visitors recently proposed the following website[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 06:42:25</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>14</wp:comment_id>
-    <wp:comment_author><![CDATA[Locksmith OKC]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.locksmithinokc.com</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 15:01:00</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 07:01:00</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]always a big fan of linking to bloggers that I appreciate but don’t get quite a bit of link adore from[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 07:01:00</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>15</wp:comment_id>
-    <wp:comment_author><![CDATA[free business listing]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>https://www.myinfoline.com</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 15:14:18</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 07:14:18</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]below you will find the link to some websites that we assume you ought to visit[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 07:14:18</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>16</wp:comment_id>
-    <wp:comment_author><![CDATA[monatomic]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://www.alchemicalelixirs.com</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 15:47:34</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 07:47:34</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]Every the moment inside a though we select blogs that we read. Listed below would be the newest websites that we decide on [...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 07:47:34</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>17</wp:comment_id>
-    <wp:comment_author><![CDATA[Last Kings Snapback]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://growth-management.alachua.fl.us/development_connection/last-kings-snapback-hats.html</wp:comment_author_url>
-    <wp:comment_author_IP>5.135.36.38</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 17:21:33</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 09:21:33</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]we came across a cool web site that you just could delight in. Take a appear in case you want[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 09:21:33</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>18</wp:comment_id>
-    <wp:comment_author><![CDATA[Zephyr Snapback]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://zephyrsnapbackhats.webs.com/</wp:comment_author_url>
-    <wp:comment_author_IP>5.135.36.38</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 19:35:57</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 11:35:57</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]just beneath, are a lot of entirely not associated internet sites to ours, even so, they may be certainly worth going over[...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 11:35:57</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>19</wp:comment_id>
-    <wp:comment_author><![CDATA[Obey Hats]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://growth-management.alachua.fl.us/information_center/obey-snapback-hats.html</wp:comment_author_url>
-    <wp:comment_author_IP>5.135.36.38</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 20:48:41</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 12:48:41</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]Every when inside a whilst we choose blogs that we study. Listed beneath are the most current web-sites that we decide on [...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 12:48:41</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-  <wp:comment>
-    <wp:comment_id>20</wp:comment_id>
-    <wp:comment_author><![CDATA[Iklan Gratis]]></wp:comment_author>
-    <wp:comment_author_email/>
-    <wp:comment_author_url>http://amazines.info/article.php?id=18746</wp:comment_author_url>
-    <wp:comment_author_IP>46.105.250.131</wp:comment_author_IP>
-    <wp:comment_date>2013-04-20 21:44:10</wp:comment_date>
-    <wp:comment_date_gmt>2013-04-20 13:44:10</wp:comment_date_gmt>
-    <wp:comment_content><![CDATA[<strong>Title...</strong>
-
-[...]Wonderful story, reckoned we could combine a handful of unrelated data, nevertheless actually really worth taking a search, whoa did a single study about Mid East has got more problerms also [...]...]]></wp:comment_content>
-    <wp:comment_approved>1</wp:comment_approved>
-    <wp:comment_type>trackback</wp:comment_type>
-    <wp:comment_parent>0</wp:comment_parent>
-    <wp:comment_user_id>0</wp:comment_user_id>
-    <wp:commentmeta>
-      <wp:meta_key>_elasticsearch_indexed_on</wp:meta_key>
-      <wp:meta_value>2013-04-20 13:44:10</wp:meta_value>
-    </wp:commentmeta>
-  </wp:comment>
-</item>
-<item>
   <title>We are the world</title>
   <link>https://in70s.wordpress.com/2009/01/02/we-are-the-world/</link>
   <pubDate>Fri, 02 Jan 2009 23:43:30 +0000</pubDate>
@@ -4335,6 +3723,53 @@ Drupal带来了希望。《<a href="http://home.henryhuiwang.com/">阖家</a>》
   </wp:postmeta>
 </item>
 <item>
+  <title>搬迁到Opera</title>
+  <link>https://in70s.wordpress.com/2006/07/06/%e6%90%ac%e8%bf%81%e5%88%b0opera__trashed/</link>
+  <pubDate>Thu, 06 Jul 2006 16:01:00 +0000</pubDate>
+  <dc:creator>mrhhw</dc:creator>
+  <guid isPermaLink="false">http://in70s.wordpress.com/2006/07/06/%e6%90%ac%e8%bf%81%e5%88%b0opera</guid>
+  <description/>
+  <content:encoded><![CDATA[MSN和Google都未成气候，但是My.Opera却是那么吸引人，300M一个账户。<div>不错。搬迁到<a href="http://my.opera.com/henryhuiwang/">这里</a>。</div><div><br /></div><div>又注：今天是个纪念日，家国历史不能忘记啊！</div>]]></content:encoded>
+  <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+  <wp:post_id>241</wp:post_id>
+  <wp:post_date>2006-07-06 16:01:00</wp:post_date>
+  <wp:post_date_gmt>2006-07-06 16:01:00</wp:post_date_gmt>
+  <wp:comment_status>open</wp:comment_status>
+  <wp:ping_status>open</wp:ping_status>
+  <wp:post_name>%e6%90%ac%e8%bf%81%e5%88%b0opera__trashed</wp:post_name>
+  <wp:status>trash</wp:status>
+  <wp:post_parent>0</wp:post_parent>
+  <wp:menu_order>0</wp:menu_order>
+  <wp:post_type>post</wp:post_type>
+  <wp:post_password/>
+  <wp:is_sticky>0</wp:is_sticky>
+  <category domain="category" nicename="the-myth"><![CDATA[The Myth]]></category>
+  <wp:postmeta>
+    <wp:meta_key>blogger_blog</wp:meta_key>
+    <wp:meta_value><![CDATA[hhw-myth.blogspot.com]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>blogger_author</wp:meta_key>
+    <wp:meta_value><![CDATA[Henry Hui Wang]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>blogger_25a7af68582ceabece3191533099c9d4_permalink</wp:meta_key>
+    <wp:meta_value><![CDATA[4996538294512539243]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
+    <wp:meta_value><![CDATA[publish]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
+    <wp:meta_value><![CDATA[1498787960]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
+    <wp:meta_value><![CDATA[%e6%90%ac%e8%bf%81%e5%88%b0opera]]></wp:meta_value>
+  </wp:postmeta>
+</item>
+<item>
   <title>CMMI 提问 · 回答</title>
   <link>https://in70s.wordpress.com/2006/05/06/cmmi-%e6%8f%90%e9%97%ae-%c2%b7-%e5%9b%9e%e7%ad%94/</link>
   <pubDate>Sat, 06 May 2006 22:22:12 +0000</pubDate>
@@ -4529,6 +3964,54 @@ CMMI5其实是对公司软件工程（系统工程）能力成熟度的一个鉴
   <wp:postmeta>
     <wp:meta_key>_publicize_job_id</wp:meta_key>
     <wp:meta_value><![CDATA[6625148057]]></wp:meta_value>
+  </wp:postmeta>
+</item>
+<item>
+  <title>恭喜发财</title>
+  <link>https://in70s.wordpress.com/2006/01/10/%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2__trashed/</link>
+  <pubDate>Tue, 10 Jan 2006 14:57:00 +0000</pubDate>
+  <dc:creator>mrhhw</dc:creator>
+  <guid isPermaLink="false">http://in70s.wordpress.com/2006/01/10/%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2</guid>
+  <description/>
+  <content:encoded><![CDATA[<span class="Apple-style-span" style="font-family:Verdana;font-size:13px;line-height:22px;"><div style="line-height:170%;">春节正在向我们跑来，拜年词“恭喜发财”自是马上要挂在嘴边了。</div><div style="line-height:170%;">今天读到一段：“在英文里，财富（wealth）这个词源自weal（幸福安逸），本意是活得身心健康无忧无虑。”——也许给这个老词儿一点新意吧。</div><div style="line-height:170%;">是啊，钱是挣不完的，如果财就是钱，未免太狭窄了。</div><div style="line-height:170%;">况且，我们做IT的，祝人“恭喜发财”，如果财就是钱，无疑就是让人拼掉老命了——不吉利啊，哈哈！</div><div style="line-height:170%;"> </div><div style="line-height:170%;">------</div><div style="line-height:170%;">hhw @mobile</div></span>]]></content:encoded>
+  <excerpt:encoded><![CDATA[]]></excerpt:encoded>
+  <wp:post_id>249</wp:post_id>
+  <wp:post_date>2006-01-10 14:57:00</wp:post_date>
+  <wp:post_date_gmt>2006-01-10 14:57:00</wp:post_date_gmt>
+  <wp:comment_status>open</wp:comment_status>
+  <wp:ping_status>open</wp:ping_status>
+  <wp:post_name>%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2__trashed</wp:post_name>
+  <wp:status>trash</wp:status>
+  <wp:post_parent>0</wp:post_parent>
+  <wp:menu_order>0</wp:menu_order>
+  <wp:post_type>post</wp:post_type>
+  <wp:post_password/>
+  <wp:is_sticky>0</wp:is_sticky>
+  <category domain="category" nicename="%e9%9a%8f%e6%83%b3"><![CDATA[随想]]></category>
+  <category domain="category" nicename="%e8%a7%82%e7%82%b9"><![CDATA[观点]]></category>
+  <wp:postmeta>
+    <wp:meta_key>blogger_blog</wp:meta_key>
+    <wp:meta_value><![CDATA[hhw-myth.blogspot.com]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>blogger_author</wp:meta_key>
+    <wp:meta_value><![CDATA[Henry Hui Wang]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>blogger_25a7af68582ceabece3191533099c9d4_permalink</wp:meta_key>
+    <wp:meta_value><![CDATA[3491922730785164300]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
+    <wp:meta_value><![CDATA[publish]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
+    <wp:meta_value><![CDATA[1498787962]]></wp:meta_value>
+  </wp:postmeta>
+  <wp:postmeta>
+    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
+    <wp:meta_value><![CDATA[%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2]]></wp:meta_value>
   </wp:postmeta>
 </item>
 <item>
@@ -7298,101 +6781,6 @@ CMMI5其实是对公司软件工程（系统工程）能力成熟度的一个鉴
   <wp:postmeta>
     <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
     <wp:meta_value><![CDATA[%e6%8a%98%e8%85%be-2]]></wp:meta_value>
-  </wp:postmeta>
-</item>
-<item>
-  <title>搬迁到Opera</title>
-  <link>https://in70s.wordpress.com/2006/07/06/%e6%90%ac%e8%bf%81%e5%88%b0opera__trashed/</link>
-  <pubDate>Thu, 06 Jul 2006 16:01:00 +0000</pubDate>
-  <dc:creator>mrhhw</dc:creator>
-  <guid isPermaLink="false">http://in70s.wordpress.com/2006/07/06/%e6%90%ac%e8%bf%81%e5%88%b0opera</guid>
-  <description/>
-  <content:encoded><![CDATA[MSN和Google都未成气候，但是My.Opera却是那么吸引人，300M一个账户。<div>不错。搬迁到<a href="http://my.opera.com/henryhuiwang/">这里</a>。</div><div><br /></div><div>又注：今天是个纪念日，家国历史不能忘记啊！</div>]]></content:encoded>
-  <excerpt:encoded><![CDATA[]]></excerpt:encoded>
-  <wp:post_id>241</wp:post_id>
-  <wp:post_date>2006-07-06 16:01:00</wp:post_date>
-  <wp:post_date_gmt>2006-07-06 16:01:00</wp:post_date_gmt>
-  <wp:comment_status>open</wp:comment_status>
-  <wp:ping_status>open</wp:ping_status>
-  <wp:post_name>%e6%90%ac%e8%bf%81%e5%88%b0opera__trashed</wp:post_name>
-  <wp:status>trash</wp:status>
-  <wp:post_parent>0</wp:post_parent>
-  <wp:menu_order>0</wp:menu_order>
-  <wp:post_type>post</wp:post_type>
-  <wp:post_password/>
-  <wp:is_sticky>0</wp:is_sticky>
-  <category domain="category" nicename="the-myth"><![CDATA[The Myth]]></category>
-  <wp:postmeta>
-    <wp:meta_key>blogger_blog</wp:meta_key>
-    <wp:meta_value><![CDATA[hhw-myth.blogspot.com]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>blogger_author</wp:meta_key>
-    <wp:meta_value><![CDATA[Henry Hui Wang]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>blogger_25a7af68582ceabece3191533099c9d4_permalink</wp:meta_key>
-    <wp:meta_value><![CDATA[4996538294512539243]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
-    <wp:meta_value><![CDATA[publish]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
-    <wp:meta_value><![CDATA[1498787960]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
-    <wp:meta_value><![CDATA[%e6%90%ac%e8%bf%81%e5%88%b0opera]]></wp:meta_value>
-  </wp:postmeta>
-</item>
-<item>
-  <title>恭喜发财</title>
-  <link>https://in70s.wordpress.com/2006/01/10/%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2__trashed/</link>
-  <pubDate>Tue, 10 Jan 2006 14:57:00 +0000</pubDate>
-  <dc:creator>mrhhw</dc:creator>
-  <guid isPermaLink="false">http://in70s.wordpress.com/2006/01/10/%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2</guid>
-  <description/>
-  <content:encoded><![CDATA[<span class="Apple-style-span" style="font-family:Verdana;font-size:13px;line-height:22px;"><div style="line-height:170%;">春节正在向我们跑来，拜年词“恭喜发财”自是马上要挂在嘴边了。</div><div style="line-height:170%;">今天读到一段：“在英文里，财富（wealth）这个词源自weal（幸福安逸），本意是活得身心健康无忧无虑。”——也许给这个老词儿一点新意吧。</div><div style="line-height:170%;">是啊，钱是挣不完的，如果财就是钱，未免太狭窄了。</div><div style="line-height:170%;">况且，我们做IT的，祝人“恭喜发财”，如果财就是钱，无疑就是让人拼掉老命了——不吉利啊，哈哈！</div><div style="line-height:170%;"> </div><div style="line-height:170%;">------</div><div style="line-height:170%;">hhw @mobile</div></span>]]></content:encoded>
-  <excerpt:encoded><![CDATA[]]></excerpt:encoded>
-  <wp:post_id>249</wp:post_id>
-  <wp:post_date>2006-01-10 14:57:00</wp:post_date>
-  <wp:post_date_gmt>2006-01-10 14:57:00</wp:post_date_gmt>
-  <wp:comment_status>open</wp:comment_status>
-  <wp:ping_status>open</wp:ping_status>
-  <wp:post_name>%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2__trashed</wp:post_name>
-  <wp:status>trash</wp:status>
-  <wp:post_parent>0</wp:post_parent>
-  <wp:menu_order>0</wp:menu_order>
-  <wp:post_type>post</wp:post_type>
-  <wp:post_password/>
-  <wp:is_sticky>0</wp:is_sticky>
-  <category domain="category" nicename="%e9%9a%8f%e6%83%b3"><![CDATA[随想]]></category>
-  <category domain="category" nicename="%e8%a7%82%e7%82%b9"><![CDATA[观点]]></category>
-  <wp:postmeta>
-    <wp:meta_key>blogger_blog</wp:meta_key>
-    <wp:meta_value><![CDATA[hhw-myth.blogspot.com]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>blogger_author</wp:meta_key>
-    <wp:meta_value><![CDATA[Henry Hui Wang]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>blogger_25a7af68582ceabece3191533099c9d4_permalink</wp:meta_key>
-    <wp:meta_value><![CDATA[3491922730785164300]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_trash_meta_status</wp:meta_key>
-    <wp:meta_value><![CDATA[publish]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_trash_meta_time</wp:meta_key>
-    <wp:meta_value><![CDATA[1498787962]]></wp:meta_value>
-  </wp:postmeta>
-  <wp:postmeta>
-    <wp:meta_key>_wp_desired_post_slug</wp:meta_key>
-    <wp:meta_value><![CDATA[%e6%81%ad%e5%96%9c%e5%8f%91%e8%b4%a2-2]]></wp:meta_value>
   </wp:postmeta>
 </item>
 <item>
