@@ -7,7 +7,7 @@
   <meta name="keyword" content="undefined">
   <title>
     
-      如是我曰（IMHO）
+      Project | 如是我曰（IMHO）
     
   </title>
   <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
       
         <li class="list-item">
           
-            <a href="/" class="item-link active">Home</a>
+            <a href="/" class="item-link">Home</a>
           
         </li>
       
@@ -71,7 +71,7 @@
         
           <li class="menu-item">
             
-              <a href="/" class="menu-link mobile-active">Home</a>
+              <a href="/" class="menu-link">Home</a>
             
           </li>
         
@@ -104,83 +104,57 @@
   </div>
 </header>
 
-    <main class="app-body">
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2002/07/31/e6-af-95-e4-b8-9a-e5-8d-81-e5-b9-b4-e4-ba-86/">毕业十年了</a>
-      </h2>
-      <p class="article-date">2002-07-31</p>
-      
-      <div class="article-summary">
-        
-          毕业十年了。加入这个公司两年，刚刚中断了SAP的尝试，回苏州，似乎考虑从事BD的工作。 
-回顾十年大事：   毕业后在厂工作两年不到，因杀毒和软件能力在车间里面混一席，兄弟五人交好。师父者两个半，其一亦师亦友
-   导师的一个项目，拉我下乡半年，结识师长一位，深受教诲，但我自己不堪，逃离   ...
-        
-      </div>
-      <a class="more" href="/2002/07/31/e6-af-95-e4-b8-9a-e5-8d-81-e5-b9-b4-e4-ba-86/">更多>></a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2001/09/11/e8-b0-81-e6-92-9e-e4-ba-86-e5-8f-8c-e5-a1-94-ef-bc-9f/">谁撞了双塔？</a>
-      </h2>
-      <p class="article-date">2001-09-11</p>
-      
-      <div class="article-summary">
-        
-          妻弟突然风风火火地跑到我蜗缩的机房里，一边大声叫着：双塔被撞了！&ldquo;啊？谁开车那么猛？&rdquo;我漫不经心地问，还以为是苏州的定慧寺巷里的双塔，一边站起来走去电视边。&ldquo;被飞机撞了！&rdquo;
-我看到的是永远不可能被遗忘的灾难！&ldquo;天佑美国！&rdquo;
-        
-      </div>
-      <a class="more" href="/2001/09/11/e8-b0-81-e6-92-9e-e4-ba-86-e5-8f-8c-e5-a1-94-ef-bc-9f/">更多>></a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/2000/03/17/20000317-newstart/">新的开始</a>
-      </h2>
-      <p class="article-date">2000-03-17</p>
-      
-      <div class="article-summary">
-        
-          今天第一天上班。
-
-        
-      </div>
-      <a class="more" href="/2000/03/17/20000317-newstart/">更多>></a>
-    </article>
-  
-    <article class="article-card">
-      <h2 class="article-head">
-        <a href="/1971/02/08/e5-87-ba-e7-94-9f/">出生</a>
-      </h2>
-      <p class="article-date">1971-02-08</p>
-      
-      <div class="article-summary">
-        
-          今天中午，我出生与地区医院。重6斤8两，浑身无毛，落地无啼。
-
-        
-      </div>
-      <a class="more" href="/1971/02/08/e5-87-ba-e7-94-9f/">更多>></a>
-    </article>
-  
-
-  
-    <div class="guide-pager">
-  
-    <a href="/page/8/"><span class="page-arrow">← </span>Prev</a>
-  
-  
-    <a class="unvisible" href="/">Next <span class="page-arrow">→</span></a>
-  
+    <div id="article-banner">
+  <h2>Projects</h2>
+  <p class="post-date">开源项目</p>
 </div>
-  
+<main class="app-body project-app">
+  <div class="card-container" id="all-project">
+  </div>
 </main>
-
-
+<script>
+  (function() {
+    var url = 'http://blog.hhw.im/project/index.html';
+    $('#article-banner').geopattern(url);
+    $('.header').removeClass('fixed-header')
+    $.ajax({
+      headers: {
+        Accept: 'application/vnd.github.v3.raw'
+      },
+      type: 'get',
+      url: 'https://api.github.com/users/undefined/repos',
+      success: function (data) {
+        var repos = data.sort(function(a, b) {
+          return (b.stargazers_count - a.stargazers_count)
+        }).slice(0, 6)
+        var cardHtml = repos.map(function(item) {
+          var description = item.description
+          if (description.replace(/[\u0391-\uFFE5]/g, "aa").length > 72) {
+            description = description.slice(0, 72) + '...'
+          }
+          return (
+            '<section class="project-card">' + 
+              '<a class="card-wrap" href="'+ item.html_url +'" target="_blank">' +
+                '<div class="card-header" data-name="'+ item.name +'"></div>' +
+                '<h3 class="card-title">' + item.name + '</h3>' +
+                '<p class="card-description">' + description + '</p>' +
+                '<div class="card-footer">' +
+                  '<span><i class="fa fa-star"></i>'+ item.stargazers_count +'</span>' +
+                  '<span><i class="fa fa-code-fork"></i>' + item.forks_count +'</span>' +
+                '</div>' +
+              '</a>' +
+            '</section>'
+          )
+        }).join('')
+        $('#all-project').html(cardHtml)
+        $('.card-header').each(function() {
+          var name = $(this).data('name');
+          $(this).geopattern(name);
+        })
+      }
+    });
+  })()
+</script>
     <div class="scroll-top">
   <span class="arrow-icon"></span>
 </div>
