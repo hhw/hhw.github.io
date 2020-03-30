@@ -1,0 +1,60 @@
+
+/* Style for a "Recommendation" */
+
+/*
+   Copyright 1996-2008 HolyInfo Studio. All Rights Reserved.
+   The following software licensing rules apply:
+   http://www.holyinfo.org/Legal/copyright-software */
+
+/* $Id: REC.css,v 1.00 2008/02/25 1:00:00 hhw $ */
+
+body {
+  padding: 2em 1em 2em 70px;
+  margin: 0;
+  font-family: serif;
+	font-size: 11pt;
+	color: black;
+  background: white;
+  background-position: top left;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+	line-height: 150%;
+}
+
+a:link { color: #00C; background: transparent }
+a:visited { color: #609; background: transparent }
+a:active { color: #C00; background: transparent }
+a:link img, a:visited img { border-style: none } /* no border on img links */
+a img { color: white; }        /* trick to hide the border in Netscape 4 */
+@media all {                   /* hide the next rule from Netscape 4 */
+  a img { color: inherit; }    /* undo the color change above */
+}
+
+h1, h2, h3, h4, h5, h6 { text-align: left }
+/* background should be transparent, but WebTV has a bug */
+h1, h2, h3 { color: #005A9C }
+h1 { font: 170% sans-serif }
+h2 {margin-left: 2em; font: 140% sans-serif }
+h3 {margin-left: 4em; font: 120% sans-serif }
+h4 {margin-left: 6em; font: bold 100% sans-serif }
+h5 {margin-left: 6em; font: italic 100% sans-serif }
+h6 {margin-left: 6em; font: small-caps 100% sans-serif}
+
+pre { margin-left: 2em; background:#f0f0f0; }
+
+dt, dd { margin-top: 0; margin-bottom: 0 } /* opera 3.50 */
+dt { text-decoration: underline }
+
+pre, code { color:darkgray;font-family: monospace } /* navigator 4 requires this */
+
+ul.toc, ol.toc {
+  list-style: disc;		/* Mac NS has problem with 'none' */
+  list-style: none;
+}
+
+body {
+  /*background-image: url(http://www.holyinfo.org/css/logo-REC.png);*/
+  background-image: url(REC.gif);
+}
+
+tr,table,td,th {border:1px solid black;padding:5px 5px;text-align:center;border-collapse: collapse}
