@@ -10,13 +10,14 @@
   display: none;
 }
 body {
-  font-family: '微软雅黑','宋体','Helvetica Neue', Arial, sans-serif;
+  font-family:  'Source Sans Pro','微软雅黑','宋体','Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
   position: relative;
   height: 100%;
   margin: 0;
+  margin-right:10;
   color: #34495e;
   font-size: 18px;
 }
@@ -29,7 +30,7 @@ ol,
 ul,
 form,
 p {
-  margin: 0;
+  margin: 10;
 }
 a {
   text-decoration: none;
