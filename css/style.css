@@ -10,7 +10,7 @@
   display: none;
 }
 body {
-  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+  font-family: '微软雅黑','宋体','Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: none;
@@ -18,7 +18,7 @@ body {
   height: 100%;
   margin: 0;
   color: #34495e;
-  font-size: 16px;
+  font-size: 18px;
 }
 @media screen and (max-width: 480px) {
   body {
