@@ -9,8 +9,8 @@
 /* $Id: REC.css,v 1.00 2008/02/25 1:00:00 hhw $ */
 
 body {
-  padding: 2em 1em 2em 70px;
-  margin: 0;
+  /*padding: 2em 1em 2em 70px;*/
+  margin: 10,20,20,10;
   font-family: serif;
 	font-size: 11pt;
 	color: black;
@@ -54,7 +54,7 @@ ul.toc, ol.toc {
 
 body {
   /*background-image: url(http://www.holyinfo.org/css/logo-REC.png);*/
-  background-image: url(REC.gif);
+  /*background-image: url(REC.gif);*/
 }
 
-tr,table,td,th {border:1px solid black;padding:5px 5px;text-align:center;border-collapse: collapse}
+tr,table,td,th {border:0px solid black;padding:5px 5px;text-align:center;border-collapse: collapse}
