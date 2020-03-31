@@ -65,7 +65,6 @@ blockquote {
     border-left:.5em solid #eee;
     padding: 0 0 0 2em;
     margin-left:0;
-    background-color: #f0f0f0;
     
 }
 blockquote  cite {
@@ -79,6 +78,7 @@ blockquote cite:before {
 
 blockquote p {
     color: #666;
+    background-color: #fcfcfc;
 }
 hr {
     text-align: left;
