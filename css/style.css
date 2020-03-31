@@ -64,7 +64,7 @@ tr,table,td,th {border:0px solid black;padding:5px 5px;text-align:center;border-
 
 blockquote {
     border-left:.2em solid #bbb;
-    padding: 5px 2px 2px 2px;
+    padding: 0 0 0 .5em;
     background-color: #f0f0f0;
     margin-left:0;
 }
@@ -79,6 +79,7 @@ blockquote cite:before {
 
 blockquote p {
     color: #666;
+    margin-left: 1em;
 }
 hr {
     text-align: left;
