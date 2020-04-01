@@ -12,7 +12,7 @@ body {
   padding: 2% 5% 2% 5%;
   margin: 0；
   font-family: serif;
-	font-size: 14pt;
+	font-size: 12pt;
 	color: black;
   background: white;
   background-position: top left;
@@ -68,7 +68,7 @@ blockquote {
     margin:0;
 }
 blockquote  cite {
-    font-size:14px;
+    font-size:12px;
     line-height:20px;
     color:#bfbfbf;
 }
