@@ -9,8 +9,8 @@
 /* $Id: REC.css,v 1.00 2008/02/25 1:00:00 hhw $ */
 
 body {
-  /*padding: 2em 1em 2em 70px;*/
-  margin: 1em；
+  padding: 3em 1em 3em 1em;
+  margin: 0；
   font-family: serif;
 	font-size: 14pt;
 	color: black;
@@ -63,7 +63,7 @@ body {
 tr,table,td,th {border:0px solid black;padding:5px 5px;text-align:center;border-collapse: collapse}
 
 blockquote {
-    border-left:.25em solid #ccc;
+    border-left:.25em solid #ddd;
     padding: .5 .25 .25 .5em;
     margin:0;
 }
@@ -77,7 +77,7 @@ blockquote cite:before {
 }
 
 blockquote p {
-    color: #999;
+    color: #888;
     margin-left:1em;
 }
 hr {
