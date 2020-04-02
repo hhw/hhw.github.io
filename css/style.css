@@ -97,7 +97,7 @@ body {
   font-size: 2em;
   margin: .67em 0;
   text-align: center;
-  color: #006098;
+  color: #127098;
   
 }
 
@@ -253,6 +253,7 @@ body {
 .markdown-body p {
   margin-top: 0;
   margin-bottom: 10px;
+  font-size:13pt;
 }
 
 .markdown-body blockquote {
@@ -745,9 +746,9 @@ body {
 .markdown-body dl dt {
   padding: 0;
   margin-top: 16px;
-  font-size: 1.25em;
+  font-size: 1.20em;
   font-style: bold;
-  font-weight: 600;
+  font-weight: 800;
 }
 
 .markdown-body dl dd {
