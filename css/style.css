@@ -20,6 +20,9 @@ body {
   background-repeat: no-repeat;
 	line-height: 150%;
 
+}
+p {
+
 word-spacing:-1em;/*调整文本，以防止使用两端对齐之后字间距过大*/ 
 text-align:justify; 
 text-justify:distribute-all-lines;/*ie6-8*/ 
@@ -28,7 +31,6 @@ text-align-last:justify;/* ie9*/
 -webkit-text-align-last:justify;
 
 }
-
 a:link { color: #00C; background: transparent }
 a:visited { color: #609; background: transparent }
 a:active { color: #C00; background: transparent }
