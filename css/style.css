@@ -85,9 +85,9 @@ blockquote p {
 */
 
 hr {
-    background-color: #aaa;
+    color: #aaa;
     height: 2pt;
-    padding: 10px;
-    margin: 0;
+    padding: 0;
+    margin: 1em;
     border: 0 none;
 }
