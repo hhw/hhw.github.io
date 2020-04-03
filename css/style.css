@@ -45,14 +45,13 @@ a:hover { text-decoration: underline;}
 a:link { color: #0366d6; background: transparent }
 a:visited { color: #609; background: transparent }
 a:active { color: #0366d6; background: transparent }
-
-*/
-
 a:link img, a:visited img { border-style: none } /* no border on img links */
 a img { color: white; }        /* trick to hide the border in Netscape 4 */
 @media all {                   /* hide the next rule from Netscape 4 */
   a img { color: inherit; }    /* undo the color change above */
 }
+
+*/
 
 h1 { text-align: center }
 
