@@ -33,9 +33,16 @@ text-align-last:justify;/* ie9*/
 }
 */
 
-a:link { color: #00C; background: transparent }
+a {
+  color: #0366d6;
+  text-decoration: none;
+}
+
+a:hover { text-decoration: underline;}
+
+a:link { color: #0366d6; background: transparent }
 a:visited { color: #609; background: transparent }
-a:active { color: #C00; background: transparent }
+a:active { color: #0366d6; background: transparent }
 a:link img, a:visited img { border-style: none } /* no border on img links */
 a img { color: white; }        /* trick to hide the border in Netscape 4 */
 @media all {                   /* hide the next rule from Netscape 4 */
@@ -46,7 +53,7 @@ h1 { text-align: center }
 
 h2, h3, h4, h5, h6 { text-align: left }
 /* background should be transparent, but WebTV has a bug */
-h1, h2, h3 { color: #005A9C }
+h1, h2, h3 { color: #127098 }
 h1 { font: 170% sans-serif }
 h2 {margin-left: 2em; font: 140% sans-serif }
 h3 {margin-left: 4em; font: 120% sans-serif }
@@ -99,9 +106,9 @@ blockquote p {
 hr {
     text-align: left;
     color: #999;
-    height: 2px;
+    height: 1pt;
     padding: 0;
-    margin: 16px 0;
+    margin: 0;
     background-color: #e7e7e7;
     border: 0 none;
 }
