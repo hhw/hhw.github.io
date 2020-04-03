@@ -2,11 +2,13 @@
 /* Style for a "Recommendation" */
 
 /*
-   Copyright 1996-2008 HolyInfo Studio. All Rights Reserved.
+   Copyright 1996-2020 hhw.im （鹤厈）. All Rights Reserved.
    The following software licensing rules apply:
-   http://www.holyinfo.org/Legal/copyright-software */
+   http://hhw.im/Legal/copyright-software 
+*/
 
 /* $Id: REC.css,v 1.00 2008/02/25 1:00:00 hhw $ */
+/* $Id: style.css,v 2.00 2020/04/03 2:00:00 hhw $ */
 
 body {
   padding: 1% 3% 1% 3%;
@@ -14,24 +16,7 @@ body {
   font-family: serif;
 	font-size: 13pt;
 	color: black;
-  background: white;
-  background-position: top left;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-	line-height: 150%;
-
 }
-/*
-p {
-word-spacing:-1em;/*调整文本，以防止使用两端对齐之后字间距过大*/ 
-text-align:justify; 
-
-text-justify:distribute-all-lines;/*ie6-8*/ 
-text-align-last:justify;/* ie9*/ 
--moz-text-align-last:justify;/*ff*/ 
--webkit-text-align-last:justify;
-}
-*/
 
 a {
   color: #0366d6;
@@ -76,11 +61,6 @@ pre, code { color:darkgray;font-family: monospace } /* navigator 4 requires this
 ul.toc, ol.toc {
   list-style: disc;		/* Mac NS has problem with 'none' */
   list-style: none;
-}
-
-body {
-  /*background-image: url(http://www.holyinfo.org/css/logo-REC.png);*/
-  /*background-image: url(REC.gif);*/
 }
 
 tr,table,td,th {border:0px solid black;padding:5px 5px;text-align:center;border-collapse: collapse}
