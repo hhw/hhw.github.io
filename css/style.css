@@ -86,10 +86,10 @@ blockquote p {
 
 hr {
     text-align: left;
-    color: #999;
-    height: 1pt;
+    color: #666;
+    height: 2pt;
     padding: 0;
     margin: 0;
-    background-color: #e7e7e7;
+    background-color: #666;
     border: 0 none;
 }
