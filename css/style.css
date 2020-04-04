@@ -95,13 +95,11 @@ hr {
 }
 
 p {
-    font-size: 14pt;
-    color: #222;
-/*
+    font-size: 13pt;
+    color: #333;
     letter-spacing: 1px; 
-    word-spacing: 2px; 
-*/
+/*  word-spacing: 2px; */
     text-align: justify; 
-    line-height: 1.7 em;
+    line-height: 1.8 em;
 }
 
