@@ -39,7 +39,7 @@ a img { color: white; }        /* trick to hide the border in Netscape 4 */
 */
 
 h2, h3, h4, h5, h6 { text-align: left;text-wrap:none; }
-h1, h2, h3 { font-weight: 600; color: #071298 }
+h1, h2, h3 { font-weight: bold; color: #127098 }
 h1 {text-align:center; text-wrap:none; font: 160% sans-serif;letter-spacing: .2 em}
 h2 {margin-left: 2em; font: 140% sans-serif }
 h3 {margin-left: 4em; font: 120% sans-serif }
