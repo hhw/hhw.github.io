@@ -39,11 +39,10 @@ a img { color: white; }        /* trick to hide the border in Netscape 4 */
 */
 
 h2, h3, h4, h5, h6 { text-align: left;text-wrap:none; }
-h1, h2, h3 { font-weight: 600; color: #127098 }
-h1 {font: bold; text-align:center; text-wrap:none; font: 160% sans-serif;letter-spacing: .2 em}
-h2 {margin-left: 2em; font: 140% sans-serif }
-h3 {margin-left: 4em; font: 120% sans-serif }
-h4 {margin-left: 6em; font: bold 110% serif }
+h1 {font: bold; color: #127098; text-align:center; text-wrap:none; font: 160% sans-serif;letter-spacing: .2 em}
+h2 {font-weight: 600; color: #127098; margin-left: 0 em; font: 140% sans-serif }
+h3 {font-weight: 600; color: #127098; margin-left: 2 em; font: 120% sans-serif }
+h4 {margin-left: 4 em; font: bold 110% serif }
 h5 {margin-left: 6em; font: italic 100% serif }
 h6 {margin-left: 6em; font: small-caps 100% serif}
 
@@ -99,10 +98,4 @@ article {
 */
     text-align: justify; 
     line-height: 150%;
-}
-
-.caption {
-     color: #fafafa;
-     letter-spacing: 0;
-     text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
 }
