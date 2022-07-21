@@ -53,7 +53,13 @@ dt, dd { margin-top: 5pt; margin-bottom: 5pt } /* opera 3.50 */
 dt { font: bold 110% sans-serif}
 dd { margin-left: 10pt}
 
-pre, code { color:darkgray;font-family: monospace } /* navigator 4 requires this */
+pre, code { 
+    color: darkgray;
+    padding: 0 1em;
+    border-left: .25em solid #dfe2e5;
+    margin:0;
+    font-family: monospace
+} /* navigator 4 requires this */
 
 ul.toc, ol.toc {
   list-style: disc;		/* Mac NS has problem with 'none' */
