@@ -50,8 +50,9 @@ h6 {margin-left: 6em; font: small-caps 100% serif}
 dt, dd { margin-top: 5pt; margin-bottom: 5pt } /* opera 3.50 */
 dt { font: bold 110% sans-serif}
 dd { margin-left: 10pt}
+code{}
 
-pre, code { 
+pre {
     background-color: #f8f8f8;
     color: black;
     padding: 0 1em;
@@ -74,16 +75,15 @@ blockquote {
     border-left: .25em solid #dfe2e5;
     margin:0;
 }
-pre, code, blockquote  cite {
+blockquote  cite {
     font-size:12px;
     line-height:20px;
     color:#bfbfbf;
 }
-pre, code, blockquote cite:before {
+blockquote cite:before {
     content: '\2014 \00A0';
 }
-
-pre, code, blockquote p {
+blockquote p {
     color: #6a737d;
 }
 
