@@ -54,10 +54,12 @@ dt { font: bold 110% sans-serif}
 dd { margin-left: 10pt}
 
 pre, code { 
-    color: darkgray;
+    color: black;
     padding: 0 1em;
     border-left: .25em solid #dfe2e5;
     margin:0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
     font-family: monospace
 } /* navigator 4 requires this */
 
