@@ -52,6 +52,7 @@ dt { font: bold 110% sans-serif}
 dd { margin-left: 10pt}
 
 pre, code { 
+    background-color: #f8f8f8;
     color: black;
     padding: 0 1em;
     border-left: .25em solid #dfe2e5;
@@ -73,16 +74,16 @@ blockquote {
     border-left: .25em solid #dfe2e5;
     margin:0;
 }
-blockquote  cite {
+pre, code, blockquote  cite {
     font-size:12px;
     line-height:20px;
     color:#bfbfbf;
 }
-blockquote cite:before {
+pre, code, blockquote cite:before {
     content: '\2014 \00A0';
 }
 
-blockquote p {
+pre, code, blockquote p {
     color: #6a737d;
 }
 
