@@ -47,8 +47,6 @@ h4 {margin-left: 4 em; font: bold 110% serif }
 h5 {margin-left: 6em; font: italic 100% serif }
 h6 {margin-left: 6em; font: small-caps 100% serif}
 
-pre { margin-left: 2em; background:#f0f0f0; }
-
 dt, dd { margin-top: 5pt; margin-bottom: 5pt } /* opera 3.50 */
 dt { font: bold 110% sans-serif}
 dd { margin-left: 10pt}
